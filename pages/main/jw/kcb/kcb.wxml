@@ -1,0 +1,27 @@
+<view class="page kcb">
+  <view class="top">
+    <text class="title">{{xq}}</text>
+    <text class="info">姓名：{{xm}} 账号：{{xh}}</text>
+    <scroll-view scroll-x="true" class="top-nav">
+        <view bindtap="xq" id="1" class="top-btn {{xq1}}">星期一</view>
+        <view bindtap="xq" id="2" class="top-btn {{xq2}}">星期二</view>
+        <view bindtap="xq" id="3" class="top-btn {{xq3}}">星期三</view>
+        <view bindtap="xq" id="4" class="top-btn {{xq4}}">星期四</view>
+        <view bindtap="xq" id="5" class="top-btn {{xq5}}">星期五</view>
+        <view bindtap="xq" id="6" class="top-btn {{xq6}}">星期六</view>
+        <view bindtap="xq" id="7" class="top-btn {{xq7}}">星期日</view>
+    </scroll-view>
+  </view>
+  <view class="details" wx:if="{{kcb != 'NULL'}}" wx:for="{{kcb}}" wx:key="id">
+    <text class="details-kc">{{item.KCMC}}</text>
+    <text class="details-skdd">上课地点：{{item.SKDD}}</text>
+    <text class="details-sksj">上课时间：第{{item.DJJ}}节({{item.SKSJ}})</text>
+    <!--<text class="details-jd">绩点：{{}}</text>-->
+  </view>
+  <view class="details" wx:if="{{kcb == 'NULL'}}">
+    <text class="details-fail">😆 没有找到今天的课表喔~</text>
+    <text class="details-fail">稍后再来试试看~</text>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="统一认证" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">完成统一认证后才可以使用，是否立即前往绑定？</modal>
+</view>

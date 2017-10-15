@@ -1,0 +1,139 @@
+.top{
+    display: block;
+    margin-top: -10rpx;
+    margin-bottom: 20rpx;
+    width: 100%;
+    background: #7acfa6;
+    padding-bottom: 10rpx;
+}
+.title{
+    color: #444;
+    display: block;
+    font-size: 60rpx;
+    text-align: center;
+    margin-top: 10rpx;
+}
+.info{
+    color: #444;
+    display: block;
+    font-size: 35rpx;
+    text-align: center;
+    line-height: 55rpx;
+}
+.details{
+    display: block;
+    margin-top: 15rpx;
+}
+.details-fail{
+    color: red;
+    display: block;
+    font-size: 45rpx;
+    text-align: center;
+}
+
+
+.main-list {
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+    .list-item {
+
+        display: flex;
+        margin-bottom: 20rpx;
+        padding: 0 20rpx;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        background-color: #fff;
+        font-size: 11pt;
+    }
+  /* main-list > item
+ ============================================================================ */
+.item {
+    border-radius: 20rpx;
+    background: #f7f7f7;
+    display: flex;
+    padding: 20rpx;
+    padding-right: 0;
+    align-items: center;
+}
+    .item-content {
+
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+        .item-content-state {
+
+            margin-left: 20rpx;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-content: flex-start;
+        }
+            .content-state-name {
+                font-size: 12pt;
+                line-height: 175%;
+                letter-spacing: 1px;
+            }
+                .state-name-active {
+                    color: #8271bf;
+                }
+            .content-state-stuId {
+
+                color: #999;
+            }
+  /* main-list > item > list-sign
+ ============================================================================ */
+.list-sign {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .list-sign-icon {
+
+        width: 30rpx;
+        height: 30rpx;
+        padding: 20rpx;
+        transition: transform .2s;
+        transform: rotate(0deg);
+    }
+    .list-sign-icon-show {
+
+        transform: rotate(180deg);
+    }
+  /* main-list > item > item-ul
+ ============================================================================ */
+.item-ul {
+        background: #f7f7f7;
+        border-radius: 20rpx;
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    padding: 10rpx 30rpx 15rpx;
+    overflow: hidden;
+}
+    .item-ul-li {
+
+        display: flex;
+        border-top: 1px solid #eee;
+        padding: 25rpx 5rpx 20rpx;
+    }
+        .ul-li-label {
+            color: #888;
+            width: 48pt;
+        }
+
+        .ul-li-content {
+            flex: 1;
+        }
+
+.ul-li-revise {
+            color: dodgerblue;
+            width: 100%;
+            text-align: center;
+        }

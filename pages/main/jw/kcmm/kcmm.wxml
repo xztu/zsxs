@@ -1,0 +1,74 @@
+<view class="page cj">
+  <view class="top">
+    <text class="title">成绩录入密码</text>
+    <text class="info">录入学期：{{xn}}学年 第{{xq}}学期</text>
+    <text class="info" style="margin-top:-15rpx;">补考学期：{{bkxn}}学年 第{{bkxq}}学期</text>
+  </view>
+  <view class="main-list" wx:if="{{kc != 'NULL'}}" wx:for="{{kc}}" wx:key="id">
+    <view class="list-item">
+      <view class="item" data-index="{{index}}" bindtap="bindOpenList" style="background:{{item.LRSZ=='提交'?'#7acfa6':(item.LRSZ=='保存'?'#88cbff':(item.LRSZ=='锁定'?'#ffbcbc':''))}}">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              {{item.KCMC}}<text class="state-name-active"> [{{item.BJHZ}}]</text>
+            </view>
+            <view class="content-state-stuId">录入状态：{{item.LRSZ}}</view>
+          </view>
+        </view>
+        <view class="list-sign">
+          <image class="list-sign-icon {{item.display ? 'list-sign-icon-show' : ''}}" src="{{server}}images/common/up.png"></image>
+        </view>
+      </view>
+      <view class="item-ul" hidden="{{item.display}}">
+        <view class="item-ul-gendor item-ul-li">
+          <text class="ul-li-label">上课时间</text>
+          <text class="ul-li-content">{{item.SKSJ}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">上课地点</text>
+          <text class="ul-li-content">{{item.SKDD}}</text>
+        </view>
+        <!--<view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">课程学期</text>
+          <text class="ul-li-content">{{item.XQ}}</text>
+        </view>-->
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">录入密码</text>
+          <text class="ul-li-content">{{item.MM?item.MM:'未生成'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="main-list" wx:if="{{bk != 'NULL'}}" wx:for="{{bk}}" wx:key="id">
+    <view class="list-item">
+      <view class="item" data-index="{{index}}" bindtap="bindOpenList1" style="background:{{item.LRSZ=='提交'?'#7acfa6':(item.LRSZ=='保存'?'#88cbff':(item.LRSZ=='锁定'?'#ffbcbc':''))}}">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              {{item.KCMC}}<text class="state-name-active"> [补考]</text>
+            </view>
+            <view class="content-state-stuId">录入状态：{{item.LRSZ}}</view>
+          </view>
+        </view>
+        <view class="list-sign">
+          <image class="list-sign-icon {{item.display ? 'list-sign-icon-show' : ''}}" src="{{server}}images/common/up.png"></image>
+        </view>
+      </view>
+      <view class="item-ul" hidden="{{item.display}}">
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">补考人数</text>
+          <text class="ul-li-content">{{item.RS}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">录入密码</text>
+          <text class="ul-li-content">{{item.MM?item.MM:'未生成'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="details" wx:if="{{kc == 'NULL' && bk == 'NULL'}}">
+    <text class="details-fail">无课程</text>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="统一认证" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">完成统一认证后才可以使用，是否立即前往绑定？</modal>
+</view>

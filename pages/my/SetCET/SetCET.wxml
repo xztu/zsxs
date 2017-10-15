@@ -1,0 +1,23 @@
+<!--/pages/my/SetCET/SetCET.wxml-->
+<view class="page SetIdcard">
+  <view class="SetIdcard-item">
+      <image class="SetIdcard-item-img" mode="scaleToFill" src="{{server}}images/icon/card.png"></image>
+      <view>
+        <input type="idcard" placeholder="{{zkzhText}}" class="SetIdcard-item-input" placeholder-style="color:#f5f5f5;" bindinput="bindKeyInput" maxlength="18"/>
+      </view>
+      <view class="SetIdcard-item-button">
+        <button type="warn" size="default" loading="{{loading}}" class="SetIdcard-button" bindtap="isLogin">{{btnText}}</button>
+      </view>
+  </view>
+  <view class="warn" hidden="{{btnHidden}}">
+    <view class="warn-item">
+      <!--
+      <icon class="warn-item-icon" type="warn" size="20"></icon>
+      -->
+      <text class="warn-item-title">注意</text>
+      <text class="warn-item-content">只可以绑定或修改为{{xm}}的准考证。</text>
+    </view>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="消息" confirm-text="确认" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">您还进行统一认证，是否前往？</modal>
+</view> 

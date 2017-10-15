@@ -1,0 +1,48 @@
+/*SetIdcard.wxss*/
+.SetIdcard{
+  overflow: hidden;
+  height: 100%;
+}
+.SetIdcard-item{
+  text-align: center;
+  height: 130%;
+  background: #7acfa6;
+}
+.SetIdcard-item-img{
+  width:  512rpx;
+  height: 512rpx;
+  margin-top: -30rpx;
+  margin-bottom:40rpx;
+}
+.SetIdcard-item-input{
+  display: block;
+  color: #fff;
+  width:  430rpx;
+  font-size: 28rpx;
+  padding: 4rpx 5rpx;
+  border: 4rpx solid rgba(136, 136, 136, 0.6);
+  margin: 20rpx auto;
+  margin-top: -180rpx;
+}
+.SetIdcard-item-button{
+  width: 490rpx;
+  margin: 50rpx auto 30rpx auto;
+}
+.SetIdcard-button{
+  font-size: 28rpx;
+}
+.warn-item{
+  padding:10rpx 30rpx;
+}
+.warn-item-title{
+  display: inline-block;
+  color: 	#FF2D2D;
+  font-size: 35rpx;
+  margin-left: 5rpx;
+}
+.warn-item-content{
+  color: 	#FF2D2D;
+  margin-top: 10rpx;
+  display: block;
+  text-indent: 40rpx;
+}

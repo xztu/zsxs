@@ -1,0 +1,271 @@
+<!--about.wxml-->
+<view class="page container">
+  <view class="header">
+    <view class="black-cover"></view>
+    <image class="logo" src="{{server}}images/logo/logo-icon.png"></image>
+    <image class="title" src="{{server}}images/logo/title.png"></image>
+  </view>
+  <view class="content">
+    <view class="version">
+      <view class="version-title">
+        <text class="title-name">掌上忻师</text>
+        <text class="version-text">{{version}}</text>
+        <text class="version-text">体验版</text>
+      </view>
+      <view bindtap="toggleLog">
+        <text class="version-log-link update-log" wx:if="{{!showLog}}">更新日志</text>
+        <text class="version-log-link" wx:else>简介</text>
+      </view>
+    </view>
+    <view class="describe" wx:if="{{!showLog}}">
+      <text class="desc-title">简介</text>
+      <!--
+        <view class="desc-list">
+          <text class="desc-list-item">官网：http://www.rebeta.cn</text>
+          <text class="desc-list-item">Github：https://github.com/</text>
+        </view>
+        -->
+      <text class="desc-content">掌上忻师是一个有别于微信公众号（服务号）的微信小程序。致力于整合各种低频应用和碎片信息，打造一体化服务平台。本应用在使用时无需下载和安装、可以便捷的在微信内分享给好友使用，同时具有优秀的使用体验。</text>
+      <text class="desc-content">掌上忻师有更方便的教务查询功能，课程表、考试成绩一键查询，免受教务系统崩溃卡顿困扰。</text>
+      <text class="desc-content">掌上忻师有更丰富的信息查询功能，职业规划、双选会招聘信息，助你走上成功的职场道路。</text>
+      <text class="desc-content">更多功能... （期待您与我们共同发现，反馈问题请加入QQ群：85695803，加入开发团队请发送简历到Rebeta@vip.qq.com）</text>
+    </view>
+    <view class="log-list" wx:else>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.5 体验版</text>
+          <text class="desc-time">2017.06.12</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增查阅图书馆借阅信息功能</text>
+        </view>
+        <text class="desc-content">使用须知</text>
+        <view class="desc-list">
+          <text class="desc-list-item">本版本为体验版！</text>
+          <text class="desc-list-item">本版本包含的各种功能可能会进行大规模修改或被移除</text>
+          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.4 体验版</text>
+          <text class="desc-time">2017.06.12</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复打开首页(index)时在控制台(console)中显示的错误提示</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增转发“掌上忻师”链接给好友的功能</text>
+          <text class="desc-list-item">对“课程表”功能中的提示进行了优化</text>
+          <text class="desc-list-item">对“证书核验”功能中的提示进行了优化</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.3 体验版</text>
+          <text class="desc-time">2017.05.20</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增课程表查询（教师）功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.2 体验版</text>
+          <text class="desc-time">2017.05.08</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增课程密码查询（教师）功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.1 体验版</text>
+          <text class="desc-time">2017.04.26</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增证书核验功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.0 体验版</text>
+          <text class="desc-time">2017.03.23</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">移除录取查询功能</text>
+          <text class="desc-list-item">暂时关闭职业规划功能</text>
+          <text class="desc-list-item">将绑定身份证升级为统一认证</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.2.4 体验版</text>
+          <text class="desc-time">2017.03.23</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复主页中的今日课表组件不能正确获取信息的BUG</text>
+          <text class="desc-list-item">修复因为网络延迟造成的登陆信息错误</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">成绩查询中显示课程的重修标记</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.2.3 体验版</text>
+          <text class="desc-time">2017.03.09</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">重新修订版本号</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.2.2 体验版</text>
+          <text class="desc-time">2017.03.01</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复授权失败导致的无法进入应用</text>
+          <text class="desc-list-item">修复主页Lodading在加载完成后不隐藏的BUG</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">优化身份信息页面</text>
+          <text class="desc-list-item">优化四六级（CET）准考证信息页面逻辑</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.2.1 体验版</text>
+          <text class="desc-time">2017.02.28</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">双选会相关页面增加下拉刷新功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.2.0 体验版</text>
+          <text class="desc-time">2017.02.27</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">版本过度到体验版</text>
+          <text class="desc-list-item">新增双选会搜索结果页面</text>
+          <text class="desc-list-item">优化双选会相关模块</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.1.3 功能验证版</text>
+          <text class="desc-time">2017.02.24</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增双选会相关模块</text>
+          <text class="desc-list-item">移除资讯模块</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.1.2 功能验证版</text>
+          <text class="desc-time">2017.02.22</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增四六级考试(CET)相关模块</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.1.1 功能验证版</text>
+          <text class="desc-time">2017.02.20</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">完善职业规划模块</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.1.0 功能验证版</text>
+          <text class="desc-time">2017.02.18</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">新增关于页面</text>
+          <text class="desc-list-item">新增资讯页面（将在后续更新为校内资讯）</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footer-lanshan">
+      <image src="{{server}}images/logo/logo-icon-gl.png"></image>
+      <text>掌上忻师</text>
+    </view>
+    <text>招生就业处 · 大学生就业创业小组</text>
+    <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<view class="page dsxx">
+  <!--页面主体部分-->
+  <view class="main" wx:if="{{term}}">
+    <view class="main-title">
+      <text class="title-text">当前学期：{{term}}</text>
+    </view>
+    <!--主体部分内容列表-->
+    <view class="main-list" wx:for="{{resData}}" wx:key="id">
+      <!--列表的一个元素的模板结构-->
+      <view class="list-item">
+        <!--信息直接显示部分-->
+        <view class="item" data-index="{{index}}">
+          <view class="item-content">
+            <view class="item-content-state">
+              <view class="content-state-name">
+                <text class="state-name-active">{{item.tutortype}} </text>{{item.name}}
+              </view>
+              <view class="content-state-stuId">{{item.year}}学年 ~ 第{{item.term}}学期</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button class="btn" bindtap="edit" hidden="{{!hiddenEdit}}">{{editBtn}}</button>
+  </view>
+    <view class="edit" hidden="{{hiddenEdit}}">
+      <form bindsubmit="formSubmit">
+        <picker bindchange="tutorTypeBind" name="tutorType" value="{{tutorType}}" range="{{tutorTypeRange}}">
+          <view class="form-item">类别：{{tutorTypeRange[tutorType]}}</view>
+        </picker>
+        <view class="form-item">
+          <text class="form-item-text">姓名：</text>
+          <input class="form-item-input" name="xm" value="{{defaultValue}}"/>
+        </view>
+        <button form-type="submit" class="btn" loading="{{onSubmit}}" disabled="{{onSubmit}}"> 提 交 </button>
+      </form>
+    </view>
+    <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+</view>

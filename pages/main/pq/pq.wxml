@@ -1,0 +1,79 @@
+<view class="page cj">
+  <view class="top">
+    <text class="title">{{title}}</text>
+    <text class="info">毕业年份：{{bynf}} 类别：{{lb}}</text>
+    <text class="info" style="padding-bottom:10rpx;">学号：{{xh}}</text>
+  </view>
+  <view wx:if="{{sfres != NULL}}">
+    <view class="form">
+      <text class="form-item">生源所在地：{{syszd}}</text>
+      <picker bindchange="bindPickerChange" value="{{sfindex}}" range="{{sfres}}" range-key="syszd">
+        <view class="form-item" style="background-color:#FFFACD;">修改为：{{sfres[sfindex].syszd}}</view>
+      </picker>
+      <text class="warn">生源所在地填到省、市(地区)两级。“生源所在地”指本人入学前户口所在地，及父母现在的户口所在地。</text>
+      <text class="warn">此项将作为毕业派遣的依据。</text>
+      <text class="warn">此项仅可修改一次，确认修改前请仔细确认填写无误。</text>
+    </view>
+    <button class="btn" bindtap="SubmintSYSZD">确认修改</button>
+  </view>
+  <view wx:if="{{pqres != NULL}}">
+    <view class="form">
+      <text class="form-item">姓名：{{pqres.XM}}</text>
+      <text class="form-item">生源所在地：{{pqres.syszd}}</text>
+      <text class="form-item" style="{{pqres.l_byqx ? '' : 'color:#EE2C2C;'}}">毕业去向：{{pqres.l_byqx ? pqres.l_byqx : '未填写'}}</text>
+      <text class="form-item" style="{{pqres.l_dwmm ? '' : 'color:#EE2C2C;'}}">派遣单位名称：{{pqres.l_dwmm ? pqres.l_dwmm : '未填写'}}</text>
+      <text class="form-item" style="{{pqres.l_dwszd ? '' : 'color:#EE2C2C;'}}">派遣单位所在地：{{pqres.l_dwszd ? pqres.l_dwszd : '未填写'}}</text>
+      <text class="form-item" style="{{pqres.l_dwxz ? '' : 'color:#EE2C2C;'}}">单位性质：{{pqres.l_dwxz ? pqres.l_dwxz : '未填写'}}</text>
+      <text class="form-item">派遣状态：{{pqres.l_state}}</text>
+    </view>
+    <button class="btn" bindtap="PQBL" style="{{(pqres.l_state == '未申请' ||pqres.l_state == '修改中') ? '' : 'display:none;'}}">开始申请派遣</button>
+  </view>
+  <view wx:if="{{pq != NULL}}">
+    <view>
+      <picker bindchange="KNSLBbindPickerChange" value="{{knslb}}" range="{{pq.knslb_list}}" range-key="knslb">
+        <view class="form-item">困难生类别：{{pq.knslb_list[knslb].knslb}}</view>
+      </picker>
+      <picker wx:if="{{knslb}}" bindchange="BYQXbindPickerChange" value="{{byqx}}" range="{{pq.byqx_list}}" range-key="byqx">
+        <view class="form-item">毕业去向：{{pq.byqx_list[byqx].byqx}}</view>
+      </picker>
+      <picker wx:if="{{dwxz_list}}" bindchange="DWLXbindPickerChange" value="{{dwxz}}" range="{{dwxz_list}}" range-key="dwxz">
+        <view class="form-item">单位类型：{{dwxz_list[dwxz].dwxz}}</view>
+      </picker>
+      <text wx:if="{{(dwxz != null)}}" class="warn">{{dwxz_list[dwxz].dwxzsm}}</text>
+      <view wx:if="{{isLastStep}}">
+        <view class="form-item">
+          <text class="form-item-text">单位名称：</text>
+          <input class="form-item-input" bindinput="dwmmInput" placeholder-style="color:#FFD700;" placeholder="请输入" value="{{dwxx.dwmm}}" disabled="{{islock && dwxx.dwmm}}" />
+        </view>
+        <view class="form-item" wx:if="{{islock}}">
+          <text class="form-item-text">单位所在地：</text>
+          <input class="form-item-input" value="{{dwxx.dwszd}}" disabled="{{islock && dwxx.dwszd}}" />
+        </view>
+        <picker wx:if="{{!islock}}" bindchange="DAJSDZSbindPickerChange" value="{{dajsdz_s}}" range="{{dajsdz_s_list}}" range-key="sf">
+          <view class="form-item">单位所在省(直辖市)：{{dajsdz_s_list[dajsdz_s].sf}}</view>
+        </picker>
+        <picker wx:if="{{!islock && (dajsdz_s != null)}}" bindchange="DAJSDZbindPickerChange" value="{{dajsdz}}" range="{{dajsdz_list}}" range-key="syszd">
+          <view class="form-item">单位所在地：{{dajsdz_list[dajsdz].syszd}}</view>
+        </picker>
+        <view class="form-item">
+          <text class="form-item-text">档案接收地址：</text>
+          <input class="form-item-input" bindinput="dajsdzInput" placeholder-style="color:#FFD700;" placeholder="请输入" value="{{dwxx.dwdz}}" disabled="{{islock && dwxx.dwdz}}" />
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">单位邮编：</text>
+          <input class="form-item-input" bindinput="dwybInput" placeholder-style="color:#FFD700;" placeholder="请输入" value="{{dwxx.dwyb}}" disabled="{{islock && dwxx.dwyb}}" />
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">档案接收人：</text>
+          <input class="form-item-input" bindinput="dajsrInput" placeholder-style="color:#FFD700;" placeholder="请输入" value="{{dwxx.dajsr}}"  disabled="{{islock && dwxx.dajsr}}"/>
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">档案接收人电话：</text>
+          <input class="form-item-input" bindinput="dwmmlxdhInput" placeholder-style="color:#FFD700;" placeholder="请输入" value="{{dwxx.dwmmlxdh}}" disabled="{{islock && dwxx.dwmmlxdh}}" />
+        </view>
+        <button class="btn" style="margin-bottom:20rpx;" bindtap="SQPQ">申请</button>
+      </view>
+    </view>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+</view>

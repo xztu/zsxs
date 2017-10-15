@@ -1,0 +1,88 @@
+<view class="page study">
+  <view class="menu">
+    <!--学生功能-->
+    <block wx:if="{{usertype=='student'}}">
+      <navigator class="menu-item" url="./jw/kcb/kcb">
+        <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
+        <text class="menu-item-text">课程表</text>
+      </navigator>
+      <navigator class="menu-item" url="./jw/cj/cj">
+        <image class="menu-item-icon" src="{{server}}images/icon/qmcj.png"></image>
+        <text class="menu-item-text">考试成绩</text>
+      </navigator>
+      <navigator class="menu-item" url="./cet/cet">
+        <image class="menu-item-icon" src="{{server}}images/icon/cet.png"></image>
+        <text class="menu-item-text">CET成绩</text>
+      </navigator>
+      <navigator class="menu-item" url="./jyxx/jyxx">
+        <image class="menu-item-icon" src="{{server}}images/icon/book.png"></image>
+        <text class="menu-item-text">借阅信息</text>
+      </navigator>
+      <!--
+      <navigator class="menu-item" url="./pq/pq">
+        <image class="menu-item-icon" src="{{server}}images/icon/pqbl.png"></image>
+        <text class="menu-item-text">派遣办理</text>
+      </navigator>
+      <navigator class="menu-item" url="./zygh/zygh">
+        <image class="menu-item-icon" src="{{server}}images/icon/zygh.png"></image>
+        <text class="menu-item-text">职业规划</text>
+      </navigator>-->
+    </block>
+    <!--教师功能-->
+    <block wx:elif="{{usertype=='teacher'}}">
+      <navigator class="menu-item" url="./jw/kcb/kcb">
+        <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
+        <text class="menu-item-text">课程表</text>
+      </navigator>
+      <navigator class="menu-item" url="./jw/kcmm/kcmm">
+        <image class="menu-item-icon" src="{{server}}images/icon/kcmm.png"></image>
+        <text class="menu-item-text">课程密码</text>
+      </navigator>
+    </block>
+    <!--未登录功能功能-->
+    <block wx:else>
+      <navigator class="menu-item" url="../my/register/register">
+        <image class="menu-item-icon" src="{{server}}images/icon/pass.png"></image>
+        <text class="menu-item-text">统一认证</text>
+      </navigator>
+    </block>
+    <!--通用功能-->
+    <navigator class="menu-item" url="./zshy/zshy">
+      <image class="menu-item-icon" src="{{server}}images/icon/zshy.png"></image>
+      <text class="menu-item-text">证书核验</text>
+    </navigator>
+    <navigator class="menu-item" url="./sxh/sxh">
+      <image class="menu-item-icon" src="{{server}}images/icon/sxh.png"></image>
+      <text class="menu-item-text">双选会</text>
+    </navigator>
+  </view>
+  <view wx:if="{{loading}}" class="loading">
+    <image class="loading-image" src="{{server}}images/picture/loading.gif"></image>
+  </view>
+  <view wx:else class="main-card">
+    <view class="main-card-item" id="kb">
+      <navigator url="./jw/kcb/kcb">
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="{{server}}images/icon/kcb.png"></image>
+          <text class="card-item-name">今日课表</text>
+        </view>
+        <view wx:if="{{kb}}" class="card-item-bd">
+          <view class="kb-item" wx:for="{{kcb}}" wx:key="id">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{item.KCMC}}</text>
+              <text class="kb-item-when">第{{item.DJJ}}节 ({{item.SKSJ}})</text>
+            </view>
+            <text class="kb-item-where">{{item.SKDD}}</text>
+          </view>
+        </view>
+        <view wx:else class="card-item-bd kb-nothing">
+          <text style="color:darkgray;">😆 没有找到今天的课表喔~</text>
+          <text style="color:darkgray;">稍后再来试试看~</text>
+        </view>
+        <view class="kb-open">
+          <text>查看本周课表</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

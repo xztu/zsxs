@@ -1,0 +1,72 @@
+<!--pages/study/zygh/jbxx/jbxx.wxml-->
+<view class="page jbxx">
+  <form bindsubmit="formSubmit">
+    <picker name="jkzk" bindchange="jkzk" value="{{jkzk}}" range="{{jkzkRange}}">
+      <view class="form-item">健康状况：{{jkzkRange[jkzk]}}</view>
+    </picker>
+    <picker name="zzmm" bindchange="zzmm" value="{{zzmm}}" range="{{zzmmRange}}">
+      <view class="form-item">政治面貌：{{zzmmRange[zzmm]}}</view>
+    </picker>
+    <!--
+    <picker name="syszd" value="{{syszd}}" range="{{syszdRange}}">
+      <view class="form-item">生源所在地：{{syszdRange[syszd]}}</view>
+    </picker>
+    -->
+    <picker name="mz" bindchange="mz" value="{{mz}}" range="{{mzRange}}">
+      <view class="form-item">民族：{{mzRange[mz]}}</view>
+    </picker>
+    <view class="form-item">
+      <text  class="form-item-text">是否有驾照：{{sfyjz}}</text>
+      <switch type="switch" bindchange="sfyjz" name="sfyjz" class="form-item-switch" checked="{{resData.sfyjz}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">电子邮箱：</text>
+      <input name="email" class="form-item-input" placeholder="example@example.com" value="{{resData.email}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">QQ号码：</text>
+      <input name="qq" class="form-item-input" placeholder="建议填写常用号码" type="number" value="{{resData.qq}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">本人电话：</text>
+      <input name="brdh" class="form-item-input" placeholder="建议填写常用号码" type="number" value="{{resData.brdh}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">家庭地址：</text>
+      <input name="jtdz" class="form-item-input" placeholder="X市X区XX小区即可" value="{{resData.jtdz}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">邮政编码：</text>
+      <input name="yzbm" class="form-item-input" type="number" value="{{resData.yzbm}}"/>
+    </view>
+    <picker name="jtzyjjly" bindchange="jtzyjjly" value="{{jtzyjjly}}" range="{{jtzyjjlyRange}}">
+      <view class="form-item">家庭主要经济来源：{{jtzyjjlyRange[jtzyjjly]}}</view>
+    </picker>
+    <view class="form-item">
+      <text class="form-item-text">特长：</text>
+      <input name="tc" class="form-item-input" placeholder="简写" value="{{resData.tc}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">兴趣爱好：</text>
+      <input name="xqah" class="form-item-input" placeholder="简写" value="{{resData.xqah}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">辅导员姓名：</text>
+      <input name="fdyxm" class="form-item-input" value="{{resData.fdyxm}}"/>
+    </view>
+    <view class="form-item">
+      <text class="form-item-text">辅导员联系电话：</text>
+      <input name="fdydh" class="form-item-input" type="number" value="{{resData.fdydh}}"/>
+    </view>
+    <view class="form-item-textarea">
+      <text>社会实践：</text>
+      <textarea name="shsj" placeholder="请详细说明" value="{{resData.shsj}}"/>
+    </view>
+    <view class="form-item-textarea">
+      <text>奖惩情况：</text>
+      <textarea name="jcqk" placeholder="请详细说明" value="{{resData.jcqk}}"/>
+    </view>
+    <button form-type="submit" class="btn"> 提 交 </button>
+  </form>
+  <view style="height: 20rpx;"></view>
+</view>

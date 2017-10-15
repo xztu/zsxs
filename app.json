@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/main/main",
+    "pages/my/my",
+    "pages/main/jw/cj/cj",
+    "pages/main/jw/kcb/kcb",
+    "pages/main/jw/kcmm/kcmm",
+    "pages/main/cet/cet",
+    "pages/main/jyxx/jyxx",
+    "pages/main/zygh/zygh",
+    "pages/main/zygh/jbxx/jbxx",
+    "pages/main/zygh/jtcy/jtcy",
+    "pages/main/zygh/xxjl/xxjl",
+    "pages/main/zygh/dsxx/dsxx",
+    "pages/main/pq/pq",
+    "pages/main/zshy/zshy",
+    "pages/main/sxh/sxh",
+    "pages/main/sxh/search/search",
+    "pages/main/sxh/details/details",
+    "pages/my/register/register",
+    "pages/my/SetCET/SetCET",
+    "pages/my/about/about"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#7acfa6",
+    "navigationBarTitleText": "掌上忻师",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "color":"#444",
+    "selectedColor":"#7acfa6",
+    "backgroundColor":"#fff",
+    "borderStyle":"white",
+    "list":[{
+      "pagePath":"pages/main/main",
+      "text":"主页",
+      "iconPath":"bar/main.png",
+      "selectedIconPath":"bar/main-selected.png"
+    },{
+      "pagePath":"pages/my/my",
+      "text":"更多",
+      "iconPath":"bar/myinfo.png",
+      "selectedIconPath":"bar/myinfo-selected.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "debug":false
+}

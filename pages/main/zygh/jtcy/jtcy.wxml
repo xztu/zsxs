@@ -1,0 +1,72 @@
+<view class="page jtcy">
+  <!--页面主体部分-->
+  <view class="main" wx:if="{{total}}">
+    <!--主体部分标题-->
+    <view class="main-title">
+      <text class="title-text">家庭成员：（{{total}}人）</text>
+    </view>
+    <!--主体部分内容列表-->
+    <view class="main-list" wx:for="{{resData}}" wx:key="id">
+      <!--列表的一个元素的模板结构-->
+      <view class="list-item">
+        <!--信息直接显示部分-->
+        <view class="item" data-index="{{index}}" bindtap="bindOpenList">
+          <view class="item-content">
+            <view class="item-content-state">
+              <view class="content-state-name">
+                <text class="state-name-active">{{item.relation}} </text>{{item.name}}
+              </view>
+              <view class="content-state-stuId">联系电话：{{item.phone}}</view>
+            </view>
+          </view>
+          <!--信息直接显示部分的下拉标识-->
+          <view class="list-sign">
+            <image class="list-sign-icon {{item.display ? 'list-sign-icon-show' : ''}}" src="{{server}}images/common/up.png"></image>
+          </view>
+        </view>
+        <!--信息隐藏的下拉列表-->
+        <view class="item-ul" hidden="{{item.display}}">
+          <view class="item-ul-gendor item-ul-li">
+            <text class="ul-li-label">工作单位</text>
+            <text class="ul-li-content">{{item.job}}</text>
+          </view>
+          <view class="item-ul-college item-ul-li">
+            <text class="ul-li-label">单位邮编</text>
+            <text class="ul-li-content">{{item.postalcode}}</text>
+          </view>
+          <view class="item-ul-college item-ul-li" id="{{item.id}}" bindtap="bindDelete">
+            <text class="ul-li-delete">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{total < 4}}">
+    <button class="btn" bindtap="edit" hidden="{{!hiddenEdit}}">新增信息</button>
+  </view>
+    <view class="edit" hidden="{{hiddenEdit}}">
+      <form bindsubmit="formSubmit">
+        <view class="form-item">
+          <text class="form-item-text">姓名：</text>
+          <input class="form-item-input" name="name" value="{{defaultValue}}"/>
+        </view>
+        <picker bindchange="relationBind" name="relation" value="{{relation}}" range="{{relationRange}}">
+          <view class="form-item">称呼：{{relationRange[relation]}}</view>
+        </picker>
+        <view class="form-item">
+          <text class="form-item-text">工作单位及职务：</text>
+          <input class="form-item-input" name="job" value="{{defaultValue}}"/>
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">单位邮编：</text>
+          <input class="form-item-input" name="postalcode" type="number" value="{{defaultValue}}"/>
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">联系电话：</text>
+          <input class="form-item-input" name="phone" type="number" value="{{defaultValue}}"/>
+        </view>
+        <button form-type="submit" class="btn" loading="{{onSubmit}}" disabled="{{onSubmit}}"> 提 交 </button>
+      </form>
+    </view>
+    <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+</view>

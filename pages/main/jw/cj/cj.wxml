@@ -1,0 +1,17 @@
+<view class="page cj">
+  <view class="top">
+    <text class="title">{{xq}}</text>
+    <text class="info">姓名：{{xm}} 学号：{{xh}}</text>
+  </view>
+  <view class="details" wx:if="{{cj != 'NULL'}}" wx:for="{{cj}}" wx:key="id">
+    <text class="details-kc">{{item.KCMC}}<text wx:if="{{item.CXBJ == '1'}}">（重修）</text></text>
+    <text class="details-cj" style="color:{{item.CJ > 60 ? (item.CJ > 80 ? 'green' : 'orange' ) : 'red'}};">成绩：{{item.CJ}}</text>
+    <text class="details-cj" wx:if="{{item.BKCJ != null}}" style="color:{{item.BKCJ > 60 ? (item.BKCJ > 80 ? 'green' : 'orange' ) : 'red'}};">补考成绩：{{item.BKCJ}}</text>
+    <!--<text class="details-jd">绩点：{{}}</text>-->
+  </view>
+  <view class="details" wx:if="{{cj == 'NULL'}}">
+    <text class="details-fail">无法查询上个学期的期末成绩</text>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="统一认证" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">完成统一认证后才可以使用，是否立即前往绑定？</modal>
+</view>

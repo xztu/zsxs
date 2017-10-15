@@ -1,0 +1,17 @@
+<view class="page cj">
+  <view class="top">
+    <text class="title">{{res.school}}</text>
+    <text class="info">{{res.pro}}</text>
+  </view>
+  <view class="details">
+    <text class="details-kc">笔试成绩 （准考证号：{{res.num}}）</text>
+    <text class="details-cj" style="color:{{res.score > 425 ? (res.score > 500 ? 'green' : 'orange' ) : 'red'}};">总分：{{res.score}}</text>
+    <text class="details-cj-other">听力：{{res.listen}}</text>
+    <text class="details-cj-other">阅读：{{res.read}}</text>
+    <text class="details-cj-other">写作和翻译：{{res.write}}</text>
+    <text class="details-kc">口试成绩 （准考证号：{{res.speaknum}}）</text>
+    <text class="details-cj">等级：{{res.level}}</text>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="没有绑定准考证" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">完成四六级（CET）考试准考证绑定后才可以使用，是否立即前往绑定？</modal>
+</view>

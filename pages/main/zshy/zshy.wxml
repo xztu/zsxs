@@ -1,0 +1,28 @@
+<!--pages/main/zshy/zshy.wxml-->
+<view class="page zshy">
+  <view class="top">
+    <text class="title">证书核验</text>
+    <text class="info">{{title_info}}</text>
+  </view>
+  <view class="content" wx:if="{{firstload}}">
+    <text class="explain_title">使 用 说 明</text>
+    <text class="explain_content">1.点击下方的“开始核验”按钮。</text>
+    <text class="explain_content">2.扫描证书、文书或通知上的“防伪验证码”。</text>
+    <text class="explain_content">3.查看核验结果，与证书、文书或通知上的信息进行对比。</text>
+    <text class="explain_content">4.核验完成。</text>
+    <text class="explain_title" style="color:darkgray;">核 验 范 围</text>
+    <text class="explain_content" style="text-indent:70rpx;color:darkgray;">附带有掌上忻师所颁发的防伪验证码的各类证书、文书或通知。</text>
+  </view>
+  <view class="content" wx:else>
+    <text class="explain_title">{{result.type}}</text>
+    <text class="explain_content" style="margin-left:55rpx;">签 发 给：{{result.name}}</text>
+    <text class="explain_content">证书类型：{{result.type}}</text>
+    <text class="explain_content">证书编号：{{result.code}}</text>
+    <text class="explain_content">签发时间：{{result.time}}</text>
+    <text class="explain_content">签发单位：{{result.issuer}}</text>
+    <text class="explain_content">认证内容：{{result.result}}</text>
+    <text class="explain_content"></text>
+    <text class="explain_content" style="margin-left:0;margin-top:20rpx;text-align:center;color:gray;">请核对以上信息与证书是否一致</text>
+  </view>
+  <button class="btn" bindtap="sc">开 始 核 验</button>
+</view>

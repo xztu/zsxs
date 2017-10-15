@@ -1,0 +1,45 @@
+<view class="page me">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <navigator url="/pages/my/register/register">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/login.png" />
+        <text class="view-name">统一认证</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  <navigator url="/pages/my/SetCET/SetCET">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/cet.png" />
+        <text class="view-name">四六级(CET)准考证信息</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  <!--
+  <navigator url="/pages/my/SetCreditNo/SetCreditNo" wx:if="{{idIsset == true}}">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/password.png" />
+        <text class="view-name">验证教务系统密码</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  -->
+  <navigator url="/pages/my/about/about">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/about.png" />
+        <text class="view-name">关于</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+</view>

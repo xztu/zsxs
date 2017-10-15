@@ -1,0 +1,59 @@
+.top {
+  display: block;
+  margin-top: -10rpx;
+  width: 100%;
+  background: #7acfa6;
+}
+
+.title {
+  color: #444;
+  display: block;
+  font-size: 60rpx;
+  text-align: center;
+  margin-top: -10rpx;
+}
+
+.info {
+  color: #444;
+  display: block;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+.form {
+  height: 820rpx;
+}
+
+.warn {
+  margin: 0 25rpx;
+  color: red;
+  display: block;
+  font-size: 30rpx;
+  text-indent: 70rpx;
+}
+
+.form-item {
+  display: block;
+  margin: 20rpx auto;
+  width: 90%;
+  height: 90rpx;
+  border-radius: 20rpx;
+  text-indent: 20rpx;
+  line-height: 90rpx;
+  font-size: 35rpx;
+  background-color: whitesmoke;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.form-item-input{
+    display: block;
+    padding-top: 22rpx;
+}
+.form-item-text{
+    display: block;
+    float: left;
+}
+.btn {
+  width: 90%;
+}

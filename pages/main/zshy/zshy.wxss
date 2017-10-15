@@ -1,0 +1,47 @@
+/* pages/main/zshy/zshy.wxss */
+
+.top {
+  display: block;
+  margin-top: -10rpx;
+  width: 100%;
+  background: #7acfa6;
+}
+
+.title {
+  color: #444;
+  display: block;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.info {
+  color: #444;
+  display: block;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.content {
+  height: 900rpx;
+}
+
+.explain_title {
+  display: block;
+  text-align: center;
+  font-size: 45rpx;
+  line-height: 75rpx;
+  margin-top: 15rpx;
+}
+
+.explain_content {
+  display: block;
+  margin-left: 40rpx;
+  line-height: 65rpx;
+  font-size: 35rpx;
+}
+
+.btn {
+  width: 90%;
+}

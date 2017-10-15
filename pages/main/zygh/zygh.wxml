@@ -1,0 +1,113 @@
+<view class="page zygh">
+  <view class="top">
+    <text class="title">{{xq}}</text>
+    <text class="info">姓名：{{xm}} 学号：{{xh}}</text>
+    <text class="info" style="color:{{cj > 60 ? (cj > 80 ? 'green' : 'darkred' ) : 'red'}};">考核成绩：{{cj}}分</text>
+  </view>
+  <view class="menu">
+    <navigator class="menu-item" url="./dsxx/dsxx">
+      <image class="menu-item-icon" src="{{server}}images/icon/zygh_xzds.png"></image>
+      <text class="menu-item-text">导师信息</text>
+    </navigator>
+    <navigator class="menu-item" url="./xxjl/xxjl">
+      <image class="menu-item-icon" src="{{server}}images/icon/zygh_xxjl.png"></image>
+      <text class="menu-item-text">学习简历</text>
+    </navigator>
+    <navigator class="menu-item" url="./jtcy/jtcy">
+      <image class="menu-item-icon" src="{{server}}images/icon/zygh_jtcy.png"></image>
+      <text class="menu-item-text">家庭成员</text>
+    </navigator>
+    <navigator class="menu-item" url="./jbxx/jbxx">
+      <image class="menu-item-icon" src="{{server}}images/icon/zygh_jbxx.png"></image>
+      <text class="menu-item-text">基本信息</text>
+    </navigator>
+  </view>
+  <view class="tips" wx:if="{{tipsText}}">
+    <text>Tips:{{tipsText}}</text>
+  </view>
+  <view class="main-list" wx:for="{{resData}}" wx:key="id">
+
+    <!--列表的一个元素的模板结构-->
+    <view class="list-item">
+
+      <!--信息直接显示部分-->
+      <view class="item" data-index="{{index}}" bindtap="bindOpenList">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              <text class="state-name-active">{{item.type}} </text>{{item.title}}
+            </view>
+            <view class="content-state-stuId">{{item.year}}学年 第{{item.term}}学期</view>
+          </view>
+        </view>
+
+        <!--信息直接显示部分的下拉标识-->
+        <view class="list-sign">
+          <image class="list-sign-icon {{item.display ? 'list-sign-icon-show' : ''}}" src="{{server}}images/common/up.png"></image>
+        </view>
+      </view>
+
+      <!--信息隐藏的下拉列表-->
+      <view class="item-ul" hidden="{{item.display}}">
+        <view class="item-ul-gendor item-ul-li">
+          <text class="ul-li-label">规划内容</text>
+          <text class="ul-li-content">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="main-list" wx:for="{{nowResData}}" wx:key="id">
+    <view class="list-item">
+      <!--信息直接显示部分-->
+      <view class="item" data-index="{{index}}" bindtap="nowBindOpenList">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              <text class="state-name-active">{{item.type}} </text>{{item.title}}
+            </view>
+            <view class="content-state-stuId">{{item.year}}学年 第{{item.term}}学期</view>
+          </view>
+        </view>
+
+        <!--信息直接显示部分的下拉标识-->
+        <view class="list-sign">
+          <image class="list-sign-icon {{item.display ? 'list-sign-icon-show' : ''}}" src="{{server}}images/common/up.png"></image>
+        </view>
+      </view>
+
+      <!--信息隐藏的下拉列表-->
+      <view class="item-ul" hidden="{{item.display}}">
+        <view class="item-ul-gendor item-ul-li">
+          <text class="ul-li-label">规划内容</text>
+          <text class="ul-li-content">{{item.content}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li" id="{{item.id}}" bindtap="bindDelete">
+          <text class="ul-li-delete">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!tipsText}}">
+    <button class="btn" bindtap="edit" hidden="{{!hiddenEdit}}">新增规划</button>
+  </view>
+  <view class="edit" hidden="{{hiddenEdit}}">
+    <form bindsubmit="formSubmit">
+      <picker bindchange="lxBind" name="lx" value="{{lx}}" range="{{lxRange}}">
+        <view class="form-item">规划方向：{{lxRange[lx]}}</view>
+      </picker>
+      <view class="form-item">
+        <text class="form-item-text">规划标题：</text>
+        <input class="form-item-input" name="bt" value="{{defaultValue}}" />
+      </view>
+      <view class="form-item-textarea">
+        <text>规划内容：</text>
+        <textarea name="nr" placeholder="详细内容" value="{{defaultValue}}" />
+      </view>
+      <button form-type="submit" class="btn" loading="{{onSubmit}}" disabled="{{onSubmit}}"> 提 交 </button>
+    </form>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+  <modal title="消息" confirm-text="确认" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">您还没有绑定身份证，是否前往绑定？</modal>
+  <modal title="您不是本校学生。" confirm-text="确认" hidden="{{modalHidden1}}" bindconfirm="cancelChange" no-cancel="true"></modal>
+</view>

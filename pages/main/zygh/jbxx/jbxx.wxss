@@ -1,0 +1,38 @@
+/* pages/study/zygh/jbxx/jbxx.wxss */
+.form-item{
+    display: block;
+    margin: 20rpx auto;
+    width: 90%;
+    height: 90rpx;
+    border-radius: 20rpx;
+    text-indent: 20rpx;
+    line-height: 90rpx;
+    font-size: 35rpx;
+    background-color: whitesmoke;
+}
+.form-item-switch{
+    display: block;
+    float: right;
+    margin-top: -4rpx;
+}
+.form-item-input{
+    display: block;
+    padding-top: 20rpx;
+}
+.form-item-text{
+    display: block;
+    float: left;
+}
+.form-item-textarea{
+    display: block;
+    margin: 20rpx auto;
+    width: 90%;
+    border-radius: 20rpx;
+    font-size: 35rpx;
+    text-indent: 20rpx;
+    background-color: whitesmoke;
+}
+.btn{
+    width: 90%;
+    margin: 25rpx auto;
+}

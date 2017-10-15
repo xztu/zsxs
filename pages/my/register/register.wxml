@@ -1,0 +1,45 @@
+<!--about.wxml-->
+<view class="page SetCreditNo">
+  <view class="header">
+    <view class="black-cover"></view>
+    <image class="logo" src="{{server}}images/logo/logo-icon.png"></image>
+    <image class="title" src="{{server}}images/logo/title.png"></image>
+  </view>
+  <view class="content">
+    <view class="version">
+      <view class="version-title">
+        <text class="title-name">当前用户:{{nowUser}}</text>
+      </view>
+    </view>
+    <view class="describe">
+      <view>
+        <view class="form-item">
+          <text class="form-item-text">账号：</text>
+          <input name="username" bindinput="userInput" class="form-item-input"/>
+        </view>
+        <view class="form-item">
+          <text class="form-item-text">密码：</text>
+          <input name="password" bindinput="passwordInput" class="form-item-input"/>
+        </view>
+      </view>
+      <view class="SetIdcard-item-button">
+        <button type="warn" size="default" loading="{{loading}}" class="SetIdcard-button" bindtap="isLogin"> 登 陆 </button>
+      </view>
+      <view class="warn">
+        <view class="warn-item">
+          <text class="warn-item-title">注意:</text>
+          <text class="warn-item-content">账号密码与教务系统账号密码相同。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footer-lanshan">
+      <image src="{{server}}images/logo/logo-icon-gl.png"></image>
+      <text>掌上忻师</text>
+    </view>
+    <text>招生就业处 · 大学生就业创业小组</text>
+    <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
+  </view>
+  <modal title="{{modalValue}}" confirm-text="确认" hidden="{{modalHidden}}" bindconfirm="cancelChange" no-cancel="true"></modal>
+</view>

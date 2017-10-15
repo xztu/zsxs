@@ -1,0 +1,40 @@
+.top{
+    display: block;
+    margin-top: -10rpx;
+    width: 100%;
+    background: #7acfa6;
+}
+.title{
+    color: #444;
+    display: block;
+    font-size: 60rpx;
+    text-align: center;
+    margin-top: 10rpx;
+}
+.info{
+    color: #444;
+    display: block;
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 85rpx;
+}
+.details{
+    display: block;
+    margin-top: 15rpx;
+}
+.details-kc{
+    display: block;
+    margin-left: 20rpx;
+    font-size: 35rpx;
+}
+.details-cj{
+    display: block;
+    text-align: left;
+    margin-left: 40rpx;
+}
+.details-cj-other{
+    color: gray;
+    display: block;
+    text-align: left;
+    margin-left: 60rpx;
+}
