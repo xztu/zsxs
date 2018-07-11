@@ -1,0 +1,59 @@
+<!--pages/main/sxh/details/details.wxml-->
+<view class="page details">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{server}}images/icon/Contacts.png" background-size="cover"></image>
+    <text class="userinfo-nickname">{{resData.name}}</text>
+    <text class="userinfo-remarks">{{resData.remarks}}</text>
+  </view>
+  <view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.office}}" id="{{resData.office}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/OFFICE.png" />
+        <text class="view-name">办公室</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.office}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.office_Short}}" id="{{resData.office_Short}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/OFFICE.png" />
+        <text class="view-name">办公室小号</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.office_Short}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.CMCC}}" id="{{resData.CMCC}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/CMCC.png" />
+        <text class="view-name">移动号码</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.CMCC}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.CMCC_Short}}" id="{{resData.CMCC_Short}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/CMCC.png" />
+        <text class="view-name">移动号码小号</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.CMCC_Short}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.CTCC}}" id="{{resData.CTCC}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/CTCC.png" />
+        <text class="view-name">电信号码</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.CTCC}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.CTCC_Short}}" id="{{resData.CTCC_Short}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/CTCC.png" />
+        <text class="view-name">电信号码小号</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.CTCC_Short}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{resData.CUCC}}" id="{{resData.CUCC}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/CUCC.png" />
+        <text class="view-name">联通号码</text>
+      </view>
+      <view class="view-cell-arrow">{{resData.CUCC}}</view>
+    </view>
+  </view>
+</view>

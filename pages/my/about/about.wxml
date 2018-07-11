@@ -33,6 +33,72 @@
     <view class="log-list" wx:else>
       <view class="describe">
         <view class="desc-title">
+          <text class="desc-v">0.3.9 体验版</text>
+          <text class="desc-time">2018.07.04</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">移除校园招聘功能</text>
+          <text class="desc-list-item">添加招生微站功能</text>
+          <text class="desc-list-item">添加电话簿功能</text>
+        </view>
+        <text class="desc-content">使用须知</text>
+        <view class="desc-list">
+          <text class="desc-list-item">本版本为体验版！</text>
+          <text class="desc-list-item">本版本包含的各种功能可能会进行大规模修改或被移除</text>
+          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.8 体验版</text>
+          <text class="desc-time">2018.06.14</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">暂停CET成绩查询功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.7 体验版</text>
+          <text class="desc-time">2018.04.20</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复获取OpenID时的逻辑错误</text>
+          <text class="desc-list-item">修复课程表页面的参数错误</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">双选会功能升级为校园招聘功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.6 体验版</text>
+          <text class="desc-time">2018.01.29</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">优化在打开应用时检查用户授权的方式</text>
+          <text class="desc-list-item">微信小程序基础库最低版本要求由1.0.0调整为1.2.0</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
           <text class="desc-v">0.3.5 体验版</text>
           <text class="desc-time">2017.06.12</text>
         </view>
@@ -43,12 +109,6 @@
         <text class="desc-content">优化完善</text>
         <view class="desc-list">
           <text class="desc-list-item">新增查阅图书馆借阅信息功能</text>
-        </view>
-        <text class="desc-content">使用须知</text>
-        <view class="desc-list">
-          <text class="desc-list-item">本版本为体验版！</text>
-          <text class="desc-list-item">本版本包含的各种功能可能会进行大规模修改或被移除</text>
-          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
         </view>
       </view>
       <view class="describe">

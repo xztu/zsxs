@@ -1,0 +1,24 @@
+<!--pages/main/sxh/sxh.wxml-->
+
+<view class="page sxh">
+  <view class="main">
+    <view class="main-list" wx:for="{{resData}}" wx:key="id">
+      <view class="list-item">
+        <navigator url="../details/details?id={{item.id}}">
+          <view class="item" data-index="{{index}}">
+            <view class="item-content">
+              <view class="item-content-state">
+                <view class="content-state-name">
+                  <text class="state-name-active">{{item.name}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="emptyData" wx:if="{{emptyData}}"> 没有搜索结果 </view>
+    <text class="main-ending">{{remind}}</text>
+  </view>
+  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
+</view>

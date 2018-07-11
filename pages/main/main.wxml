@@ -10,10 +10,12 @@
         <image class="menu-item-icon" src="{{server}}images/icon/qmcj.png"></image>
         <text class="menu-item-text">考试成绩</text>
       </navigator>
+      <!--
       <navigator class="menu-item" url="./cet/cet">
         <image class="menu-item-icon" src="{{server}}images/icon/cet.png"></image>
         <text class="menu-item-text">CET成绩</text>
       </navigator>
+      -->
       <navigator class="menu-item" url="./jyxx/jyxx">
         <image class="menu-item-icon" src="{{server}}images/icon/book.png"></image>
         <text class="menu-item-text">借阅信息</text>
@@ -26,7 +28,8 @@
       <navigator class="menu-item" url="./zygh/zygh">
         <image class="menu-item-icon" src="{{server}}images/icon/zygh.png"></image>
         <text class="menu-item-text">职业规划</text>
-      </navigator>-->
+      </navigator>
+      -->
     </block>
     <!--教师功能-->
     <block wx:elif="{{usertype=='teacher'}}">
@@ -51,9 +54,19 @@
       <image class="menu-item-icon" src="{{server}}images/icon/zshy.png"></image>
       <text class="menu-item-text">证书核验</text>
     </navigator>
-    <navigator class="menu-item" url="./sxh/sxh">
-      <image class="menu-item-icon" src="{{server}}images/icon/sxh.png"></image>
-      <text class="menu-item-text">双选会</text>
+    <!--
+    <navigator class="menu-item" url="./xyzp/xyzp">
+      <image class="menu-item-icon" src="{{server}}images/icon/xyzp.png"></image>
+      <text class="menu-item-text">校园招聘</text>
+    </navigator>
+    -->
+    <navigator class="menu-item" url="./telephone_book/telephone_book">
+      <image class="menu-item-icon" src="{{server}}images/icon/telephone_book.png"></image>
+      <text class="menu-item-text">电话簿</text>
+    </navigator>
+    <navigator class="menu-item" url="./zswz/zswz">
+      <image class="menu-item-icon" src="{{server}}images/icon/zswz.png"></image>
+      <text class="menu-item-text">招生微站</text>
     </navigator>
   </view>
   <view wx:if="{{loading}}" class="loading">

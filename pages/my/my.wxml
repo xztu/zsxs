@@ -12,6 +12,7 @@
       <view class="view-cell-arrow"></view>
     </view>
   </navigator>
+  <!--
   <navigator url="/pages/my/SetCET/SetCET">
     <view class="view-cell view-cell-line">
       <view class="view-cell-primary">
@@ -21,7 +22,6 @@
       <view class="view-cell-arrow"></view>
     </view>
   </navigator>
-  <!--
   <navigator url="/pages/my/SetCreditNo/SetCreditNo" wx:if="{{idIsset == true}}">
     <view class="view-cell view-cell-line">
       <view class="view-cell-primary">

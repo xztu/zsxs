@@ -48,7 +48,6 @@ Page({
             xq: res.data.xq,
             xm: res.data.xm,
             xh: res.data.xh,
-            cj: res.data.cj,
             kcb: res.data.kcb,
             loadHidden: true
           });
