@@ -1,17 +1,19 @@
-// pages/main/sxh/details/details.js
+// pages/main/telephone_book/group/group.js
+
 var app = getApp();
 Page({
-  data:{
-    resData: []
+  data: {
+    loadHidden: false,
   },
-  onLoad:function(options){
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    var that = this
+    var that = this;
     wx.request({
-      url: app.server + "WeAPP_Sxh_Details.php",
+      url: app.server + "WeAPP_News.php",
       data: {
         openID: app.globalData.openID,
-        id: options.id,
+        flag: options.bd,
+        code: options.id,
         user: app.globalData.user,
         usertype: app.globalData.usertype,
         nickname: app.globalData.userInfo.nickName,
@@ -22,26 +24,40 @@ Page({
       method: 'POST',
       header: { "Content-Type": "application/x-www-form-urlencoded" },
       success: function (res) {
-        that.setData({
-          resData: res.data,
-        });
+        if (res.data.tip == "") {
+          that.setData({
+            resData: res.data.result,
+          });
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.data.tip,
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateBack({
+                  delta: 1
+                });
+              } else {
+                //点击取消
+              }
+            }
+          });
+        }
       },
       fail: function () {
         return "fail";
       }
     });
   },
-  onReady:function(){
+  onReady: function () {
     // 页面渲染完成
   },
-  onShow:function(){
+  onShow: function () {
     // 页面显示
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
   },
   onShareAppMessage: function () {
     return {

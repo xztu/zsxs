@@ -41,5 +41,15 @@
       <view class="view-cell-arrow"></view>
     </view>
   </navigator>
+  <navigator>
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="{{server}}images/icon/wtfk.png" />
+        <text class="view-name">问题反馈</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+      <button open-type="contact" class="contacButton"></button>
+    </view>
+  </navigator>
   <loading hidden="{{loadHidden}}">玩命加载中...</loading>
 </view>

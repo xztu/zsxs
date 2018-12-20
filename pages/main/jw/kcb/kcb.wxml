@@ -1,27 +1,151 @@
-<view class="page kcb">
-  <view class="top">
-    <text class="title">{{xq}}</text>
-    <text class="info">姓名：{{xm}} 账号：{{xh}}</text>
-    <scroll-view scroll-x="true" class="top-nav">
-        <view bindtap="xq" id="1" class="top-btn {{xq1}}">星期一</view>
-        <view bindtap="xq" id="2" class="top-btn {{xq2}}">星期二</view>
-        <view bindtap="xq" id="3" class="top-btn {{xq3}}">星期三</view>
-        <view bindtap="xq" id="4" class="top-btn {{xq4}}">星期四</view>
-        <view bindtap="xq" id="5" class="top-btn {{xq5}}">星期五</view>
-        <view bindtap="xq" id="6" class="top-btn {{xq6}}">星期六</view>
-        <view bindtap="xq" id="7" class="top-btn {{xq7}}">星期日</view>
-    </scroll-view>
+<!--kb.wxml-->
+<view class="container">
+  <view wx:if="{{tips}}" class="remind-box">
+    <image wx:if="{{tips == '加载中...'}}" class="remind-img" src="{{server}}images/icon/loading.gif"></image>
+    <block wx:else>
+      <image class="remind-img" src="{{server}}images/icon/nothing.png"></image>
+      <text class="remind-text">{{tips}}</text>
+    </block>
   </view>
-  <view class="details" wx:if="{{kcb != 'NULL'}}" wx:for="{{kcb}}" wx:key="id">
-    <text class="details-kc">{{item.KCMC}}</text>
-    <text class="details-skdd">上课地点：{{item.SKDD}}</text>
-    <text class="details-sksj">上课时间：第{{item.DJJ}}节({{item.SKSJ}})</text>
-    <!--<text class="details-jd">绩点：{{}}</text>-->
-  </view>
-  <view class="details" wx:if="{{kcb == 'NULL'}}">
-    <text class="details-fail">😆 没有找到今天的课表喔~</text>
-    <text class="details-fail">稍后再来试试看~</text>
-  </view>
-  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
-  <modal title="统一认证" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">完成统一认证后才可以使用，是否立即前往绑定？</modal>
+  <block wx:else>
+    <!-- 主体 -->
+    <view class="main-box {{blur?'main-box-active':''}}">
+      <!-- 左边课数，34节和78节marginBottom为12rpx，其他均为8rpx，课程卡片与这相同 -->
+      <view class="kb-num-ctn blur-area {{blur?'blur kb-num-ctn-hide':''}}">
+        <view class="kb-mon kb-date">
+          <!-- 课表左上角空格 -->
+        </view>
+        <view class="mg-t">1</view>
+        <view class="mg-8">2</view>
+        <view>3</view>
+        <view class="mg-8">4</view>
+        <view class="mg-12">5</view>
+        <view class="mg-8">6</view>
+        <view class="mg-8">7</view>
+        <view>8</view>
+        <view class="mg-12">9</view>
+        <view>10</view>
+        <view>11</view>
+        <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+      </view>
+      <scroll-view class="kb-ctn" catchscroll="scrollXHandle" scroll-x="true" scroll-left="{{scroll.left}}">
+        <!-- 头部星期数 -->
+        <view class="kb-title blur-area {{blur?'blur':''}}">
+          <view wx:for="{{_days}}" wx:key="*this" class="kb-title-item">
+            <text>周{{item}}</text>
+          </view>
+        </view>
+        <view class="kb-num-ctn kb-num-ctn-inner blur-area blur" wx:if="{{blur}}">
+          <view class="kb-mon kb-date">
+            <!-- 课表左上角空格 -->
+          </view>
+          <view class="mg-t">1</view>
+          <view class="mg-8">2</view>
+          <view>3</view>
+          <view class="mg-8">4</view>
+          <view class="mg-12">5</view>
+          <view class="mg-8">6</view>
+          <view class="mg-8">7</view>
+          <view>8</view>
+          <view class="mg-12">9</view>
+          <view>10</view>
+          <view>11</view>
+          <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+        </view>
+
+        <!-- 卡片部分 -->
+        <view class="kb-cards-ctn blur-area {{blur?'blur':''}}">
+          <!-- 每一列为一组 -->
+          <view class="kb-cards-column" wx:for="{{lessons}}" wx:key="{{day}}" wx:for-item="day_lesson" wx:for-index="day">
+            <!-- today 0周一,1周二-->
+            <block wx:if="{{(today==day)}}">
+              <view class="kb-bg" style="background:-webkit-gradient(linear,left top,left bottom,from(#eff7ff),color-stop({{(timelineTop+4)/1260}}, #8cc4ff),to(#eff7ff));"></view>
+              <view class="kb-timeline" style="display:block;top:{{timelineTop}}rpx"></view>
+            </block>
+            <!-- 循环当天的的11节课 -->
+            <block wx:for="{{day_lesson}}" wx:key="{{wid}}" wx:for-item="cards" wx:for-index="wid">
+              <view class="kb-card" style="top:{{_kb_card_top[cards.DJJ-1]}}rpx;">
+                <view bindtap="showDetail" data-ckxx="{{cards}}" class="mg-8 kb-card-content kb-detail-card-content {{cards.color}}" style="height:{{cards.SKCD*100-2}}rpx;">
+                  <view class="kb-card-name">
+                    <text class="kb-card-name-text" style="-webkit-line-clamp:{{cards.SKCD>1?3:2}};">{{cards.KCMC}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </view>
+
+        <!-- 遮罩层 -->
+        <view bindtap="hideDetail" class="kb-detail" wx:if="{{blur}}">
+          <view class="kb-detaile-card-ctn" style="top:{{targetY}}rpx;left:{{targetX}}rpx;">
+            <view style="height:{{targetLessons.SKCD*100}}rpx;" class="kb-card-content kb-detail-card-content {{targetLessons.color}} kb-detail-card-content-active">
+              <text class="kb-card-place-words">{{targetLessons.SKDD}}</text>
+              <view class="kb-card-name">
+                <text class="kb-card-name-text" style="-webkit-line-clamp:3;">{{targetLessons.KCMC}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="kb-info-ctn {{blur?'kb-info-ctn-open':''}}">
+      <block wx:if="{{blur}}">
+        <view class="kb-info-title">
+          <block>
+            <text class="kb-info-week">星期{{_days[targetLessons.XQJ-1]}}</text>
+            <text class="kb-lesson-time">{{targetLessons.SKSJ}}</text>
+            <image class="kb-info-card-close" src="{{server}}images/common/down_w.png" bindtap="hideDetail"></image>
+          </block>
+        </view>
+      </block>
+
+      <view class="kb-info-card-tabs">
+        <view class="kb-info-card kb-info-card-active">
+          <view class="kb-info-card-content">
+            <view class="info-name">
+              <text>{{targetLessons.KCMC}}</text>
+            </view>
+            <view class="info-bd">
+              <view class="info-type">
+                <text>第{{targetLessons.DJJ}}节</text>
+              </view>
+              <view class="info-list">
+                <view class="info-item">
+                  <text class="info-item-value">{{xn}} 学年</text>
+                </view>
+                <view class="info-item">
+                  <text class="info-item-value" wx:if="{{teacher == 'true'}}">第 {{xq}} 学期 ( {{targetLessons.SKZS}} )</text>
+                  <text class="info-item-value" wx:else>第 {{xq}} 学期</text>
+                </view>
+                <view class="info-item">
+                  <text class="info-item-value">{{targetLessons.SKDD}}</text>（上课地点）
+                </view>
+                <view class="info-item">
+                  <text class="info-item-value">{{targetLessons.SKCD*45}}分钟</text>（上课长度）
+                </view>
+                <block wx:if="{{teacher == 'true'}}">
+                  <view class="info-item">
+                    <text class="info-item-value">{{targetLessons.SKBJ}}</text>（上课班级）
+                  </view>
+                </block>
+                <!--<view class="info-item">
+                    <text class="info-item-value">{{item.all_week}}</text>（授课教师）
+                  </view>
+                  <view class="info-item">
+                    <text class="info-item-value">{{item.class_id}}</text>（教学班）
+                  </view>
+                  <view class="info-item">
+                    <image class="info-item-icon" src="/images/core/xs.png"></image>
+                    <navigator open-type="redirect" url="/pages/core/xs/xs?key=教学班:{{item.class_id}}">查看学生名单</navigator>
+                  </view>-->
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

@@ -1,0 +1,19 @@
+<!--pages/main/news/detail/detail.wxml-->
+<view>
+  <image class="explain_title_image" src="{{resData.photo}}"></image>
+  <text class="explain_title">{{resData.xm}} [{{resData.xb}}]</text>
+  <text class="explain_title" style="margin-top: -20rpx;font-size: 40rpx;">（{{resData.xh}}）</text>
+  <text class="explain_content" wx:if="{{resData.bdsx}}">报到顺序：{{resData.bdsx}}</text>
+  <text class="explain_content" wx:if="{{resData.bdsj}}">报到时间：{{resData.bdsj}}</text>
+  <text class="explain_content">身份证号：{{resData.sfzh}}</text>
+  <text class="explain_content">考 生 号：{{resData.ksh}}</text>
+  <text class="explain_content">家庭地址：{{resData.jtdz}}</text>
+  <text class="explain_content" wx:if="{{resData.lxdh}}" id="{{resData.lxdh}}" bindtap="call">联系电话：{{resData.lxdh}} (点击拨号)</text>
+  <text class="explain_content"></text>
+</view>
+<view wx:if="{{showBtn}}">
+  <text class="explain_content" style="margin-left:0;margin-top:20rpx;text-align:center;color:gray;">请与考生取得联系并核实情况后进行以下操作</text>
+  <button class="btn" bindtap="update" id="{{resData.sfzh}}|update_4">延迟入学</button>
+  <button class="btn" bindtap="update" id="{{resData.sfzh}}|update_5">参军入伍</button>
+  <button class="btn warn" bindtap="update" id="{{resData.sfzh}}|update_3">放弃入学</button>
+</view>

@@ -3,7 +3,7 @@
 .userinfo {
   position: relative;
   width: 750rpx;
-  height: 360rpx;
+  height: 410rpx;
   background: #7acfa6;
   color: #fff;
   display: flex;

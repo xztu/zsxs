@@ -1,0 +1,149 @@
+/* pages/main/zshy/zshy.wxss */
+
+.top {
+  display: block;
+  margin-top: -10rpx;
+  width: 100%;
+  background: #7acfa6;
+}
+
+.top-nav {
+  white-space: nowrap;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.top-btn {
+  display: inline-block;
+  color: #fff;
+  padding: 22rpx;
+  font-size: 16px;
+}
+
+.top-hoverd-btn {
+  color: #444;
+  border-bottom: #444 solid 1rpx;
+}
+
+.title {
+  color: #444;
+  display: block;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.info {
+  color: #444;
+  display: block;
+  font-size: 35rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.content {
+  height: 100%;
+}
+
+.explain_title {
+  display: block;
+  text-align: center;
+  font-size: 45rpx;
+  line-height: 75rpx;
+  margin-top: 15rpx;
+}
+
+.explain_title_image {
+  display: block;
+  margin: 20rpx auto -20rpx auto;
+  width: 200px;
+  height: 250px;
+  background-color: #eee;
+  border:5rpx solid black;
+}
+
+.explain_content {
+  display: block;
+  margin-left: 40rpx;
+  line-height: 65rpx;
+  font-size: 35rpx;
+}
+
+.btn {
+  width: 90%;
+  margin-top: 15rpx;
+}
+
+.warn {
+  border: 5rpx solid #fbb041;
+  color: #fbb041;
+  margin-bottom: 20rpx;
+}
+
+.main-list {
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.list-item {
+  display: flex;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  background-color: #fff;
+  font-size: 11pt;
+}
+
+.item {
+  border-radius: 20rpx;
+  background: #f7f7f7;
+  display: flex;
+  padding: 20rpx;
+  padding-right: 0;
+  align-items: center;
+}
+
+.item-content {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item-content-state {
+  margin-left: 20rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.content-state-name {
+  font-size: 12pt;
+  line-height: 175%;
+  letter-spacing: 1px;
+}
+
+.state-name-active {
+  color: #8271bf;
+}
+
+.content-state-stuId {
+  color: #999;
+}
+
+.main{
+  margin-bottom: 20rpx;
+}
+
+.main-ending{
+  display: block;
+  width: 100%;
+  color: #bbb;
+  text-align: center;
+  margin: 30rpx auto;
+}

@@ -1,0 +1,83 @@
+<!--pages/main/news/news.wxml-->
+<view class="page zshy">
+  <view class="top">
+    <!--<text class="title">{{name}}</text>
+    <text class="info" wx:for="{{title_info}}" wx:key="id">{{item}}</text>-->
+    <scroll-view scroll-x="true" class="top-nav">
+      <view bindtap="menu" id="1" class="top-btn {{menu1}}">扫码报到</view>
+      <view bindtap="menu" id="2" class="top-btn {{menu2}}">已报到名单</view>
+      <view bindtap="menu" id="3" class="top-btn {{menu3}}">未报到名单</view>
+      <view bindtap="menu" id="4" class="top-btn {{menu4}}">各班报到概况</view>
+    </scroll-view>
+  </view>
+  <view class="content" wx:if="{{page == 'bd'}}">
+    <button class="btn" bindtap="sc">扫 描 条 码</button>
+    <image class="explain_title_image" src="{{result.photo}}"></image>
+    <text class="explain_title">{{result.xm}}</text>
+    <text class="explain_title" style="margin-top: -20rpx;font-size: 40rpx;">（{{result.xh}}）</text>
+    <text class="explain_content" wx:if="{{result.bdsx}}">报到顺序：{{result.bdsx}}</text>
+    <text class="explain_content" wx:if="{{result.bdsj}}">报到时间：{{result.bdsj}}</text>
+    <text class="explain_content">身份证号：{{result.sfzh}}</text>
+    <text class="explain_content">所在校区：{{result.xq}}</text>
+    <text class="explain_content">班级代码：{{result.bj}}</text>
+    <text class="explain_content">专业名称：{{result.zymc}}</text>
+    <text class="explain_content">家庭地址：{{result.jtdz}}</text>
+    <text class="explain_content"></text>
+    <text class="explain_content" style="margin-left:0;margin-top:20rpx;text-align:center;color:gray;">请核对以上信息是否有误</text>
+    <button class="btn" bindtap="pass" id="{{result.sfzh}}">资格核对无误，确认报到</button>
+    <button class="btn warn" bindtap="review" id="{{result.sfzh}}">提交复审</button>
+  </view>
+  <view class="content" wx:elif="{{page == 'ybd'}}">
+    <view class="main">
+      <view class="main-list" wx:for="{{bjlb}}" wx:key="id">
+        <view class="list-item">
+          <navigator url="./group/group?id={{item.class}}&bd=xslb_ybd">
+            <view class="item" data-index="{{index}}">
+              <view class="item-content">
+                <view class="item-content-state">
+                  <view class="content-state-name">
+                    <text class="state-name-active">{{item.class_simple}}</text>
+                  </view>
+                  <view class="content-state-stuId">班级代码： {{item.class}}</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <text class="main-ending">{{remind}}</text>
+    </view>
+  </view>
+  <view class="content" wx:elif="{{page == 'wbd'}}">
+    <view class="main-list" wx:for="{{bjlb}}" wx:key="id">
+      <view class="list-item">
+        <navigator url="./group/group?id={{item.class}}&bd=xslb_wbd">
+          <view class="item" data-index="{{index}}">
+            <view class="item-content">
+              <view class="item-content-state">
+                <view class="content-state-name">
+                  <text class="state-name-active">{{item.class_simple}}</text>
+                </view>
+                <view class="content-state-stuId">班级代码： {{item.class}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <text class="main-ending">{{remind}}</text>
+  </view>
+  <view class="content" wx:elif="{{page == 'bdgk'}}">
+    <text class="info" wx:for="{{bkgk_info}}" wx:key="id">{{item}}</text>
+  </view>
+  <view class="content" wx:else>
+    <button class="btn" bindtap="sc">扫 描 条 码</button>
+    <text class="explain_title">使 用 说 明</text>
+    <text class="explain_content">1.点击上方的“扫描条码”按钮。</text>
+    <text class="explain_content">2.扫描录取通知书上的“录取通知书编号条形码”。</text>
+    <text class="explain_content">3.查看查询结果，对比信息与录取通知书、准考证是否一致，对比考生照片与本人是否相符。</text>
+    <text class="explain_content">4.对比无误点击“确认报到”，信息不一致点击“提交复审”报备进行复审。</text>
+    <text class="explain_title" style="color:darkgray;">备 注</text>
+    <text class="explain_content" style="text-indent:70rpx;color:darkgray;">条形码位于录取通知书左下角，辅导员不可扫描非本人所辅导班级的学生进行报到。</text>
+  </view>
+</view>

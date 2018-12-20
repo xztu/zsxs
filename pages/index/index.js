@@ -5,19 +5,11 @@ Page({
   data: {
     server: app.server,
     userInfo: {},
-    buttonText: "登录中...",
-    buttonLoading: true,
+    buttonText: "开 始 使 用",
+    buttonLoading: false,
     WaitData: 0
-  },
+  },/*
   onShow: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据（用户信息）
-    app.getUserInfo(function (userInfo) {
-      that.setData({
-        userInfo: userInfo
-      });
-    });
-    that.getOpenID();
   },
   //事件处理函数
   bindViewTap: function () {
@@ -56,20 +48,10 @@ Page({
         if (res.confirm) {
           wx.openSetting({
             success: (res) => {
-              /*
-               * res.authSetting = {
-               *   "scope.userInfo": true,
-               *   "scope.userLocation": true
-               * }
-               */
             }
           })
         }
       }
-    });
-    that.setData({
-      buttonText: "重 新 获 取 授 权",
-      buttonLoading: false
     });
   },
   connectFail: function () {
@@ -80,16 +62,16 @@ Page({
       showCancel: false,
       confirmText: '我知道了',
     });
-  },
+  },*/
   getOpenID: function () {
     var that = this
     //递归调用，在登陆完成前不断进行登陆尝试
     setTimeout(function () {
       if (that.data.buttonLoading) {
-        if (app.globalData.loginFail) {
+        /*if (app.globalData.loginFail) {
           that.notAuth();
           return;
-        }
+        }*/
         that.getOpenID();
       } else {
         return;
@@ -124,15 +106,21 @@ Page({
               app.globalData.user = res.data.user
               app.globalData.usertype = res.data.type
               that.setData({
-                buttonText: "开 始 使 用",
+                buttonText: "欢 迎 使 用",
                 buttonLoading: false
+              });
+              wx.switchTab({
+                url: '../main/main'
               });
             }
             //检查是否取回数据，结束递归
             if (app.globalData.user != 'unknow') {
               that.setData({
-                buttonText: "开 始 使 用",
+                buttonText: "欢 迎 使 用",
                 buttonLoading: false
+              });
+              wx.switchTab({
+                url: '../main/main'
               });
             }
             //登陆失败，不做操作，globalData.openID依旧为false
@@ -146,6 +134,36 @@ Page({
         //console.log('错误：'+e)
       }
     }
+  },
+  onGotUserInfo: function (e) {
+    var that = this;
+    if (e.detail.userInfo) {
+      //设置全局数据（用户信息）
+      app.globalData.userInfo = e.detail.userInfo
+      typeof cb == "function" && cb(app.globalData.userInfo)
+      //调用应用实例的方法获取全局数据（用户信息）
+      app.getUserInfo(function (userInfo) {
+        that.setData({
+          userInfo: userInfo
+        });
+      });
+      //this.onShow()
+      that.getOpenID();
+    } else {
+      wx.showModal({
+        title: '请允许微信授权！',
+        content: '拒绝授权将无法关联账号并影响使用。（仅获取昵称、头像等公开信息）',
+        showCancel: false
+      });
+      that.setData({
+        buttonText: "重 新 获 取 授 权"
+      });
+    }
+    /*console.log(app.globalData)
+    console.log(app.globalData)
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)*/
   },
   onShareAppMessage: function () {
     return {

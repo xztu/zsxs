@@ -10,7 +10,7 @@
       <view class="version-title">
         <text class="title-name">掌上忻师</text>
         <text class="version-text">{{version}}</text>
-        <text class="version-text">体验版</text>
+        <text class="version-text">开放测试版</text>
       </view>
       <view bindtap="toggleLog">
         <text class="version-log-link update-log" wx:if="{{!showLog}}">更新日志</text>
@@ -33,6 +33,130 @@
     <view class="log-list" wx:else>
       <view class="describe">
         <view class="desc-title">
+          <text class="desc-v">0.4.2 开放测试版</text>
+          <text class="desc-time">2018.12.20</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复欢迎页背景图错位的问题</text>
+          <text class="desc-list-item">修正统一认证页和关于页底部的版权信息</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">添加课表查询(公测)功能</text>
+          <text class="desc-list-item">优化成绩查询(公测)功能的页面样式</text>
+          <!--<text class="desc-list-item">成绩查询(公测)功能页面添加广告组件</text>-->
+        </view>
+        <text class="desc-content">使用须知</text>
+        <view class="desc-list">
+          <text class="desc-list-item">本版本为开放测试版</text>
+          <text class="desc-list-item">本版本包含的各种功能可能会进行修改或移除</text>
+          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.4.1 开放测试版</text>
+          <text class="desc-time">2018.12.17</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">添加成绩查询(公测)功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.4.0 开放测试版</text>
+          <text class="desc-time">2018.12.15</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">恢复借阅信息功能</text>
+          <text class="desc-list-item">添加问题反馈功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.14 体验版</text>
+          <text class="desc-time">2018.12.14</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">升级适配微信"小程序与小游戏获取用户信息接口调整"</text>
+          <!--<text class="desc-list-item">index页添加广告组件</text>-->
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.13 体验版</text>
+          <text class="desc-time">2018.10.11</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复课程表功能中上课时间有误的BUG（API升级）</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">移除借阅信息功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.12 体验版</text>
+          <text class="desc-time">2018.09.06</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复电话簿详细信息页面中ICON显示不全的BUG</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.11 体验版</text>
+          <text class="desc-time">2018.09.05</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">优化智慧迎新功能中Loading过早关闭导致的逻辑异常</text>
+          <text class="desc-list-item">电话簿详细信息页面中增加所属部门信息</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.3.10 体验版</text>
+          <text class="desc-time">2018.07.30</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">无</text>
+        </view>
+        <text class="desc-content">优化完善</text>
+        <view class="desc-list">
+          <text class="desc-list-item">添加智慧迎新功能</text>
+        </view>
+      </view>
+      <view class="describe">
+        <view class="desc-title">
           <text class="desc-v">0.3.9 体验版</text>
           <text class="desc-time">2018.07.04</text>
         </view>
@@ -45,12 +169,6 @@
           <text class="desc-list-item">移除校园招聘功能</text>
           <text class="desc-list-item">添加招生微站功能</text>
           <text class="desc-list-item">添加电话簿功能</text>
-        </view>
-        <text class="desc-content">使用须知</text>
-        <view class="desc-list">
-          <text class="desc-list-item">本版本为体验版！</text>
-          <text class="desc-list-item">本版本包含的各种功能可能会进行大规模修改或被移除</text>
-          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
         </view>
       </view>
       <view class="describe">
@@ -325,7 +443,7 @@
       <image src="{{server}}images/logo/logo-icon-gl.png"></image>
       <text>掌上忻师</text>
     </view>
-    <text>招生就业处 · 大学生就业创业小组</text>
+    <text>招生就业指导处 · 大学生就业创业小组</text>
     <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
   </view>
 </view>

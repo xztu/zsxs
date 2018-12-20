@@ -25,7 +25,7 @@ Page({
       header: { "Content-Type": "application/x-www-form-urlencoded" },
       success: function (res) {
         that.setData({
-          resData: res.data.result[0],
+          resData: res.data.result,
         });
       },
       fail: function () {

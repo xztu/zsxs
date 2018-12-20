@@ -1,16 +1,18 @@
 var app = getApp();
 Page({
   data: {
-    server: app.server,
-    help_status: false,
-    tips: '加载中...',
-    result: null
+    xq: null,
+    xm: null,
+    xh: null,
+    cj: null,
+    loadHidden: false,
+    modalHidden: true,
   },
   onShow:function(){
     // 页面显示
     var that = this;
     wx.request({
-      url: app.server+"WeAPP_Jw_CJ_NEW.php",
+      url: app.server+"WeAPP_Jw_CJ.php",
       data: {
         openID: app.globalData.openID,
         usertype: app.globalData.usertype,
@@ -22,32 +24,38 @@ Page({
       method: 'POST',
       header: {"Content-Type":"application/x-www-form-urlencoded"},
       success: function(res){
-        that.setData({
-          tips: res.data.tips,
-          result: res.data.result
-        });
+        if(res.data == "FALSE"){
+          that.setData({
+            loadHidden: true,
+            modalHidden: false,
+          });
+        }else{
+          that.setData({
+            xq: res.data.xq,
+            xm: res.data.xm,
+            xh: res.data.xh,
+            cj: res.data.cj,
+            loadHidden: true
+          });
+        }
       },
       fail: function() {
-        that.setData({
-          tips: '网络请求出错！'
-        });
         return "fail";
       }
     });
   },
-  showHelp: function (e) {
-    this.setData({
-      'help_status': true
+  // 关闭--模态弹窗
+  cancelChange: function() {
+    this.setData({ modalHidden: true });
+    wx.navigateBack({
+      delta: 1
     });
   },
-  tapHelp: function(e){
-    if(e.target.id == 'help'){
-      this.hideHelp();
-    }
-  },
-  hideHelp: function (e) {
-    this.setData({
-      'help_status': false
+  // 确认--模态弹窗
+  confirmChange: function() {
+    this.setData({ modalHidden: true });
+    wx.navigateTo({
+      url: '/pages/my/register/register'
     });
   },
   onShareAppMessage: function () {

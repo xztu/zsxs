@@ -1,0 +1,35 @@
+/* pages/main/news/detail/detail.wxss */
+.explain_title {
+  display: block;
+  text-align: center;
+  font-size: 45rpx;
+  line-height: 75rpx;
+  margin-top: 15rpx;
+}
+
+.explain_title_image {
+  display: block;
+  margin: 20rpx auto -20rpx auto;
+  width: 200px;
+  height: 250px;
+  background-color: #eee;
+  border:5rpx solid black;
+}
+
+.explain_content {
+  display: block;
+  margin-left: 40rpx;
+  line-height: 65rpx;
+  font-size: 35rpx;
+}
+
+.btn {
+  width: 90%;
+  margin-top: 15rpx;
+}
+
+.warn {
+  border: 5rpx solid #fbb041;
+  color: #fbb041;
+  margin-bottom: 20rpx;
+}

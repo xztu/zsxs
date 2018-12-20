@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "课程表"
+  "navigationBarTitleText": "我的课程表(公测)",
+  "enablePullDownRefresh": false
 }

@@ -1,4 +1,4 @@
-/* pages/main/sxh/search/search.wxss */
+/* pages/main/telephone_book/group/group.wxss */
 .main-list {
   display: flex;
   flex: 1;

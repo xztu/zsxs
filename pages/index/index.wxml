@@ -5,9 +5,10 @@
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text wx:if="{{userInfo.nickName}}" class="userinfo-nickname">Hi，{{userInfo.nickName}}</text>
     </view>
-    <view bindtap="bindViewTap" class="usermotto">
-      <button class="btn" loading="{{buttonLoading}}">{{buttonText}}</button>
+    <view class="usermotto">
+      <button class="btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" loading="{{buttonLoading}}">{{buttonText}}</button>
     </view>
   </view>
 <image class="background-image" src="{{server}}images/picture/background.gif"></image>
+<ad unit-id="adunit-d506c55d19bbcc63" style="position:absolute;bottom:0px;left:0px;"></ad>
 </view>

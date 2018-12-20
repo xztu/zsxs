@@ -3,6 +3,7 @@
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{server}}images/icon/Contacts.png" background-size="cover"></image>
     <text class="userinfo-nickname">{{resData.name}}</text>
+    <text class="userinfo-department">{{resData.department}}</text>
     <text class="userinfo-remarks">{{resData.remarks}}</text>
   </view>
   <view>

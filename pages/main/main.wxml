@@ -4,23 +4,29 @@
     <block wx:if="{{usertype=='student'}}">
       <navigator class="menu-item" url="./jw/kcb/kcb">
         <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
+        <text class="menu-item-text">课表查询</text>
+      </navigator>
+      <navigator class="menu-item" url="./jw/kcb_old/kcb">
+        <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
         <text class="menu-item-text">课程表</text>
+      </navigator>
+      <navigator class="menu-item" url="./jw/cj_old/cj">
+        <image class="menu-item-icon" src="{{server}}images/icon/qmcj.png"></image>
+        <text class="menu-item-text">考试成绩</text>
       </navigator>
       <navigator class="menu-item" url="./jw/cj/cj">
         <image class="menu-item-icon" src="{{server}}images/icon/qmcj.png"></image>
-        <text class="menu-item-text">考试成绩</text>
+        <text class="menu-item-text">成绩查询</text>
+      </navigator>
+      <navigator class="menu-item" url="./jyxx/jyxx">
+        <image class="menu-item-icon" src="{{server}}images/icon/book.png"></image>
+        <text class="menu-item-text">借阅信息</text>
       </navigator>
       <!--
       <navigator class="menu-item" url="./cet/cet">
         <image class="menu-item-icon" src="{{server}}images/icon/cet.png"></image>
         <text class="menu-item-text">CET成绩</text>
       </navigator>
-      -->
-      <navigator class="menu-item" url="./jyxx/jyxx">
-        <image class="menu-item-icon" src="{{server}}images/icon/book.png"></image>
-        <text class="menu-item-text">借阅信息</text>
-      </navigator>
-      <!--
       <navigator class="menu-item" url="./pq/pq">
         <image class="menu-item-icon" src="{{server}}images/icon/pqbl.png"></image>
         <text class="menu-item-text">派遣办理</text>
@@ -35,11 +41,19 @@
     <block wx:elif="{{usertype=='teacher'}}">
       <navigator class="menu-item" url="./jw/kcb/kcb">
         <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
+        <text class="menu-item-text">课表查询</text>
+      </navigator>
+      <navigator class="menu-item" url="./jw/kcb_old/kcb">
+        <image class="menu-item-icon" src="{{server}}images/icon/kcb.png"></image>
         <text class="menu-item-text">课程表</text>
       </navigator>
       <navigator class="menu-item" url="./jw/kcmm/kcmm">
         <image class="menu-item-icon" src="{{server}}images/icon/kcmm.png"></image>
         <text class="menu-item-text">课程密码</text>
+      </navigator>
+      <navigator class="menu-item" url="./news/news">
+        <image class="menu-item-icon" src="{{server}}images/icon/news.png"></image>
+        <text class="menu-item-text">智慧迎新</text>
       </navigator>
     </block>
     <!--未登录功能功能-->

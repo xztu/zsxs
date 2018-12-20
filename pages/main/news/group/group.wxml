@@ -1,16 +1,17 @@
-<!--pages/main/sxh/sxh.wxml-->
+<!--pages/main/telephone_book/group/group.wxml-->
+
 <view class="page sxh">
   <view class="main">
     <view class="main-list" wx:for="{{resData}}" wx:key="id">
       <view class="list-item">
-        <navigator url="../details/details?id={{item.id}}">
+        <navigator url="../detail/detail?id={{item.xh}}">
           <view class="item" data-index="{{index}}">
             <view class="item-content">
               <view class="item-content-state">
                 <view class="content-state-name">
-                  <text class="state-name-active">{{item.name}}</text>
+                  [{{item.xb}}] <text class="state-name-active">{{item.xm}}</text>
                 </view>
-                <view class="content-state-stuId">[{{item.booth}}展位] {{item.address}}</view>
+                <view class="content-state-stuId">{{item.xh}}</view>
               </view>
             </view>
           </view>
@@ -19,5 +20,4 @@
     </view>
     <text class="main-ending">{{remind}}</text>
   </view>
-  <loading hidden="{{loadHidden}}">玩命加载中...</loading>
 </view>
