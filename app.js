@@ -105,12 +105,9 @@ App({
     usertype: null,
     shareTitle: {
       "public": "忻师人自己的小程序来啦，快试试吧！",
-      "kcb": "这里查课程表超方便，快试试吧！",
-      "cj": "这里查期末成绩超方便，快试试吧！",
-      "kcmm": "这里查课程密码超方便，快试试吧！",
-      "cet": "这里查四六级成绩超方便，快试试吧！"
+      "kcmm": "这里查课程密码超方便，快试试吧！"
     }
   },
   server: "https://api.rebeta.cn/", //"http://lqcx.xzsyzjc.cn/api/",//
-  appver: "0.4.2 OBT"
+  appver: "0.4.3 OBT"
 })

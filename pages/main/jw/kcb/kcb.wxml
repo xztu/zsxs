@@ -117,7 +117,7 @@
                   <text class="info-item-value">{{xn}} 学年</text>
                 </view>
                 <view class="info-item">
-                  <text class="info-item-value" wx:if="{{teacher == 'true'}}">第 {{xq}} 学期 ( {{targetLessons.SKZS}} )</text>
+                  <text class="info-item-value" wx:if="{{userType == 'teacher'}}">第 {{xq}} 学期 ( {{targetLessons.SKZS}} )</text>
                   <text class="info-item-value" wx:else>第 {{xq}} 学期</text>
                 </view>
                 <view class="info-item">
@@ -126,7 +126,7 @@
                 <view class="info-item">
                   <text class="info-item-value">{{targetLessons.SKCD*45}}分钟</text>（上课长度）
                 </view>
-                <block wx:if="{{teacher == 'true'}}">
+                <block wx:if="{{userType == 'teacher'}}">
                   <view class="info-item">
                     <text class="info-item-value">{{targetLessons.SKBJ}}</text>（上课班级）
                   </view>

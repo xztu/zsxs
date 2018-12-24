@@ -7,8 +7,23 @@ Page({
     userInfo: {},
     buttonText: "开 始 使 用",
     buttonLoading: false,
-    WaitData: 0
-  },/*
+    WaitData: 0,
+    location: null
+  }, 
+  onLoad: function (options) {
+    // 页面初始化 options为页面跳转所带来的参数
+    if (options.session){
+      this.setData({
+        location: options.location + '?shareSession=' + options.session
+      });
+      //app.globalData.shareSession = options.session;
+    }
+    /*
+    console.log(options)
+    console.log(this.data)
+    */
+  },
+  /*
   onShow: function () {
   },
   //事件处理函数
@@ -108,20 +123,36 @@ Page({
               that.setData({
                 buttonText: "欢 迎 使 用",
                 buttonLoading: false
-              });
-              wx.switchTab({
-                url: '../main/main'
-              });
-            }
-            //检查是否取回数据，结束递归
-            if (app.globalData.user != 'unknow') {
+              })
+              if(that.data.location){
+                wx.navigateTo({
+                  url: that.data.location
+                });
+                that.setData({
+                  location: null
+                });
+              } else {
+                wx.switchTab({
+                  url: '../main/main'
+                });
+              }
+            } else if (app.globalData.user != 'unknow') {//检查是否已经取回数据（已经登陆过且登陆状态未失效），结束递归
               that.setData({
                 buttonText: "欢 迎 使 用",
                 buttonLoading: false
               });
-              wx.switchTab({
-                url: '../main/main'
-              });
+              if (that.data.location) {
+                wx.navigateTo({
+                  url: that.data.location
+                });
+                that.setData({
+                  location: null
+                });
+              } else {
+                wx.switchTab({
+                  url: '../main/main'
+                });
+              }
             }
             //登陆失败，不做操作，globalData.openID依旧为false
           },

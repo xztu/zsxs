@@ -22,7 +22,7 @@ Page({
       { begin: '15:25', end: '16:10', beginTop: 644, endTop: 744 }, //第七节课*9
       { begin: '16:11', end: '16:19', beginTop: 745, endTop: 751 }, //*10
       { begin: '16:20', end: '17:50', beginTop: 752, endTop: 952 },//第八九节课*11
-      { begin: '17:51', end: '19:29', beginTop: 953, endTop: 1248 },//*12
+      { begin: '17:51', end: '19:29', beginTop: 953, endTop: 963 },//*12
       { begin: '19:30', end: '21:00', beginTop: 964, endTop: 1164 },//第十到十一节课
       { begin: '21:01', end: '23:59', beginTop: 1165, endTop: 1166 },
     ],
@@ -33,16 +33,26 @@ Page({
     blur: false, //弹出层状态
     today: '',  //当前星期数
     lessons: [],  //课程data
+    name: '', //用户姓名
     xn: '', //当前学年
     xq: '', //当前学期
-    teacher: false,   //是否为教师课表
+    userType: '',   //用户类别
+    isShare: false, //分享模式（打开别人分享的课表）
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this,id = null;
+    var that = this;
+    if (options.shareSession){
+      that.get_kb(options.shareSession);
+      that.setData({
+        isShare: true
+      });
+    } else {
+      that.get_kb(app.globalData.openID);
+    }
     /*
     //取得打开分享页面获得的参数
     if(接收到的页面传参id！=空){
@@ -50,13 +60,13 @@ Page({
   that.setData({
     teacher: 传参
   });
-    } else*/ 
+    } else
     if (app.globalData.usertype == "teacher") {
       that.setData({
         teacher: true
       });
-    }
-    that.get_kb(id, that.data.teacher);
+    }*/
+    
     //修正夏时制的时间
     var month = new Date().getMonth() + 1;//获取当前月份(0-11,0代表1月)
     if (month > 4 && month < 10) {
@@ -73,6 +83,13 @@ Page({
       that.data._time[11].end = "18:20";
       that.data._time[12].begin = "18:21";
     }
+
+    //功能提示
+    wx.showModal({
+      title: '提示',
+      content: '点击右上角的分享按钮可以直接把自己的课程表分享给微信好友！快试一试吧！',
+      showCancel: false
+    });
   },
 
   /**
@@ -141,7 +158,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.name + ' 的课程表',
+      path: '/pages/index/index?session=' + app.globalData.openID + '&location=/pages/main/jw/kcb/kcb',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
 
   scrollXHandle: function (e) {
@@ -174,7 +200,7 @@ Page({
   },
 
 
-  get_kb: function (id,teacher) {
+  get_kb: function (session) {
     //数组去除指定值
     function removeByValue(array, val) {
       for (var i = 0, len = array.length; i < len; i++) {
@@ -183,12 +209,12 @@ Page({
       return array;
     }
 
-    var _this = this//, data = {
+    var that = this//, data = {
     //  openid: app._user.openid,
     //  id: id,
     //};
 
-    //课表渲染
+    //课表渲染that
     function kbRender(_data) {
       var colors = ['red', 'blue', 'purple', 'yellow'];
       var i, ilen, j, jlen;
@@ -240,7 +266,7 @@ Page({
       }
       var today = new Date().getDay();// parseInt(_data.day);  //0周日,1周一
       var lessons = _data.lessons;
-      _this.setData({
+      that.setData({
         today: today,
         lessons: _lessons,
       });
@@ -259,30 +285,35 @@ Page({
         appver: app.appver,
         device: app.globalData.deviceInfo.model,
         vxversion: app.globalData.deviceInfo.version,
-        id: id,
-        teacher: teacher
+        session: session
       },
       success: function (res) {
         if (res.data) {
           var _data = res.data.result.lessons;
           if (_data) {
             kbRender(_data);
-            _this.setData({
-              teacher: res.data.result.teacher,
+            that.setData({
+              name: res.data.result.xm,
               xn: res.data.result.xn,
               xq: res.data.result.xq,
+              userType: res.data.result.userType,
               tips: res.data.tips
             });
-          } else { _this.setData({ tips: '暂无数据'}); }
+            if (that.data.isShare){
+              wx.setNavigationBarTitle({
+                title: that.data.name + '的课程表'
+              });
+            }
+          } else { that.setData({ tips: '暂无数据'}); }
         } else {
-          _this.setData({
+          that.setData({
             thips: res.data.tips || '未知错误'
           });
         }
       },
       fail: function (res) {
-        if (_this.data.thips == '加载中') {
-          _this.setData({
+        if (that.data.thips == '加载中') {
+          that.setData({
             thips: '网络错误'
           });
         }
