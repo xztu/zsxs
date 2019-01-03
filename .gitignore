@@ -3,5 +3,8 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# MacOS:
+.DS_Store
+
 # 私密文件:
 测试账号.txt
