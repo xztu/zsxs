@@ -1,6 +1,7 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/my/readme/readme",
     "pages/main/main",
     "pages/my/my",
     "pages/main/jw/cj/cj",
@@ -32,31 +33,35 @@
     "pages/my/SetCET/SetCET",
     "pages/my/about/about"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#7acfa6",
     "navigationBarTitleText": "掌上忻师",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
-  "tabBar":{
-    "color":"#444",
-    "selectedColor":"#7acfa6",
-    "backgroundColor":"#fff",
-    "borderStyle":"white",
-    "list":[{
-      "pagePath":"pages/main/main",
-      "text":"主页",
-      "iconPath":"bar/main.png",
-      "selectedIconPath":"bar/main-selected.png"
-    },{
-      "pagePath":"pages/my/my",
-      "text":"更多",
-      "iconPath":"bar/myinfo.png",
-      "selectedIconPath":"bar/myinfo-selected.png"
-    }]
+  "tabBar": {
+    "color": "#444",
+    "selectedColor": "#7acfa6",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "主页",
+        "iconPath": "bar/main.png",
+        "selectedIconPath": "bar/main-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "更多",
+        "iconPath": "bar/myinfo.png",
+        "selectedIconPath": "bar/myinfo-selected.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 10000
   },
-  "debug":false
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }

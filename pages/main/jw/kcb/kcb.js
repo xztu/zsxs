@@ -274,7 +274,7 @@ Page({
     wx.showNavigationBarLoading();
     //获取课表
     wx.request({
-      url: "https://api.rebeta.cn/WeAPP_Jw_KCB_NEW.php",
+      url: app.server + "WeAPP_Jw_KCB_NEW.php",
       method: 'POST',
       header: { "Content-Type": "application/x-www-form-urlencoded" },
       /*data: app.key(data),*/

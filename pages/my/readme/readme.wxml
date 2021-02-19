@@ -1,0 +1,25 @@
+<!--about.wxml-->
+<view class="page container">
+  <view class="header">
+    <view class="black-cover"></view>
+    <image class="logo" src="{{server}}images/logo/logo-icon.png"></image>
+    <image class="title" src="{{server}}images/logo/title.png"></image>
+  </view>
+  
+  <view class="content">
+    <image wx:if="{{!readme}}" mode="widthFix" style="width:100vw;" src="{{server}}images/picture/loading.gif"></image>
+    <view wx:else class="describe">
+      <text class="desc-content" style="text-indent:0;">亲爱的忠实用户们：</text>
+      <text class="desc-content" wx:for="{{readme.Content}}" wx:key="index">{{item}}</text>
+      <text class="desc-content" style="text-align:right;" wx:for="{{readme.Footer}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footer-lanshan">
+      <image src="{{server}}images/logo/logo-icon-gl.png"></image>
+      <text>掌上忻师</text>
+    </view>
+    <text>忻州师范学院 · 招生办公室</text>
+    <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
+  </view>
+</view>

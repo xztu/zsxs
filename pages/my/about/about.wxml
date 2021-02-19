@@ -10,7 +10,7 @@
       <view class="version-title">
         <text class="title-name">掌上忻师</text>
         <text class="version-text">{{version}}</text>
-        <text class="version-text">开放测试版</text>
+        <text class="version-text">临时版</text>
       </view>
       <view bindtap="toggleLog">
         <text class="version-log-link update-log" wx:if="{{!showLog}}">更新日志</text>
@@ -28,9 +28,25 @@
       <text class="desc-content">掌上忻师是一个有别于微信公众号（服务号）的微信小程序。致力于整合各种低频应用和碎片信息，打造一体化服务平台。本应用在使用时无需下载和安装、可以便捷的在微信内分享给好友使用，同时具有优秀的使用体验。</text>
       <text class="desc-content">掌上忻师有更方便的教务查询功能，课程表、考试成绩一键查询，免受教务系统崩溃卡顿困扰。</text>
       <text class="desc-content">掌上忻师有更丰富的信息查询功能，更可以一键分享自己的课程表和考试成绩。</text>
-      <text class="desc-content">更多功能... （期待您与我们共同发现，反馈问题请加入QQ群：85695803，加入开发团队请发送简历到Rebeta@vip.qq.com）</text>
+      <text class="desc-content">更多功能... （期待您与我们共同发现，反馈问题请加入QQ群：85695803）</text>
     </view>
     <view class="log-list" wx:else>
+      <view class="describe">
+        <view class="desc-title">
+          <text class="desc-v">0.4.4 临时版</text>
+          <text class="desc-time">2021.02.15</text>
+        </view>
+        <text class="desc-content">修复BUG</text>
+        <view class="desc-list">
+          <text class="desc-list-item">修复无法正常使用的问题</text>
+        </view>
+        <text class="desc-content">使用须知</text>
+        <view class="desc-list">
+          <text class="desc-list-item">本版本为临时版</text>
+          <text class="desc-list-item">本版本包含的各种功能可能会进行修改或移除</text>
+          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
+        </view>
+      </view>
       <view class="describe">
         <view class="desc-title">
           <text class="desc-v">0.4.3 开放测试版</text>
@@ -48,12 +64,6 @@
           <text class="desc-list-item">成绩查询(公测)功能页在分享后，其他用户点击可以直接查看分享者的考试成绩</text>
           <text class="desc-list-item">更新关于页中掌上忻师的简介</text>
           <!--<text class="desc-list-item">成绩查询(公测)功能页面添加广告组件</text>-->
-        </view>
-        <text class="desc-content">使用须知</text>
-        <view class="desc-list">
-          <text class="desc-list-item">本版本为开放测试版</text>
-          <text class="desc-list-item">本版本包含的各种功能可能会进行修改或移除</text>
-          <text class="desc-list-item">本版本所提交的数据可能被重置或回滚</text>
         </view>
       </view>
       <view class="describe">
@@ -462,7 +472,7 @@
       <image src="{{server}}images/logo/logo-icon-gl.png"></image>
       <text>掌上忻师</text>
     </view>
-    <text>招生就业指导处 · 大学生就业创业小组</text>
+    <text>忻州师范学院 · 招生办公室</text>
     <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
   </view>
 </view>

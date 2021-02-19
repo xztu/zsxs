@@ -108,6 +108,6 @@ App({
       "kcmm": "这里查课程密码超方便，快试试吧！"
     }
   },
-  server: "https://api.rebeta.cn/", //"http://lqcx.xzsyzjc.cn/api/",//
-  appver: "0.4.3 OBT"
+  server: "https://api.gaea.jilinoffcn.com/zsxs/", // "https://api.rebeta.cn/", //"http://lqcx.xzsyzjc.cn/api/",//
+  appver: "0.4.4"
 })

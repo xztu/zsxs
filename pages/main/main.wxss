@@ -71,7 +71,7 @@
 }
 
 .main-card-item#kb {
-  background-image: url('https://api.rebeta.cn/images/picture/jy-bg.png');
+  background-image: url('https://api.gaea.jilinoffcn.com/zsxs/images/picture/jy-bg.png');
 }
 
 .main-card-item navigator {

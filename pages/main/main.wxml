@@ -18,11 +18,11 @@
         <image class="menu-item-icon" src="{{server}}images/icon/qmcj.png"></image>
         <text class="menu-item-text">成绩查询</text>
       </navigator>
+     <!--
       <navigator class="menu-item" url="./jyxx/jyxx">
         <image class="menu-item-icon" src="{{server}}images/icon/book.png"></image>
         <text class="menu-item-text">借阅信息</text>
       </navigator>
-      <!--
       <navigator class="menu-item" url="./cet/cet">
         <image class="menu-item-icon" src="{{server}}images/icon/cet.png"></image>
         <text class="menu-item-text">CET成绩</text>
@@ -51,10 +51,12 @@
         <image class="menu-item-icon" src="{{server}}images/icon/kcmm.png"></image>
         <text class="menu-item-text">课程密码</text>
       </navigator>
+      <!--
       <navigator class="menu-item" url="./news/news">
         <image class="menu-item-icon" src="{{server}}images/icon/news.png"></image>
         <text class="menu-item-text">智慧迎新</text>
       </navigator>
+      -->
     </block>
     <!--未登录功能功能-->
     <block wx:else>
@@ -78,10 +80,12 @@
       <image class="menu-item-icon" src="{{server}}images/icon/telephone_book.png"></image>
       <text class="menu-item-text">电话簿</text>
     </navigator>
+    <!-- 
     <navigator class="menu-item" url="./zswz/zswz">
       <image class="menu-item-icon" src="{{server}}images/icon/zswz.png"></image>
       <text class="menu-item-text">招生微站</text>
     </navigator>
+    -->
   </view>
   <view wx:if="{{loading}}" class="loading">
     <image class="loading-image" src="{{server}}images/picture/loading.gif"></image>

@@ -38,7 +38,7 @@
       <image src="{{server}}images/logo/logo-icon-gl.png"></image>
       <text>掌上忻师</text>
     </view>
-    <text>招生就业指导处 · 大学生就业创业小组</text>
+    <text>忻州师范学院 · 招生办公室</text>
     <text>Copyright © 2016-{{year}} Rebeta. All Rights Reserved</text>
   </view>
   <modal title="{{modalValue}}" confirm-text="确认" hidden="{{modalHidden}}" bindconfirm="cancelChange" no-cancel="true"></modal>
