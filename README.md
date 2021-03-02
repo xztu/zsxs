@@ -47,6 +47,3 @@ X: 版本号, Y: 修订号, Z: 迭代次数
 ## 特别鸣谢
 > Lanshan Studio *[ https://github.com/mcc108/wecqupt ]*
 <br> 及其他在微信小程序发布初期开源各种DEMO的作者
-
-## <img src="https://github.com/xztu/zsxs/raw/main/images/logo/logo-icon-colourless.png" alt="LOGO" width="23px"> REBETA
-> 中国 · 内蒙古 *[ Nei Monggol · China ]*
