@@ -1,0 +1,63 @@
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="page details">
+  <view class="userinfo">
+    <text class="userinfo-nickname">{{contactInfo.Name}}</text>
+    <text class="userinfo-department">{{contactInfo.GroupName}}</text>
+    <text class="userinfo-remarks">{{contactInfo.Remark}}</text>
+  </view>
+  <view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.Office}}" id="{{contactInfo.Office}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/phone.png" />
+        <text class="view-name">办公室</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.Office}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.OfficeShort}}" id="{{contactInfo.OfficeShort}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/phone.png" />
+        <text class="view-name">办公室小号</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.OfficeShort}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.ChinaMobile}}" id="{{contactInfo.ChinaMobile}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/china-mobile.png" />
+        <text class="view-name">移动号码</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.ChinaMobile}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.ChinaMobileShort}}" id="{{contactInfo.ChinaMobileShort}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/china-mobile.png" />
+        <text class="view-name">移动号码小号</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.ChinaMobileShort}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.ChinaTelecom}}" id="{{contactInfo.ChinaTelecom}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/china-telecom.png" />
+        <text class="view-name">电信号码</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.ChinaTelecom}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.ChinaTelecomShort}}" id="{{contactInfo.ChinaTelecomShort}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/china-telecom.png" />
+        <text class="view-name">电信号码小号</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.ChinaTelecomShort}}</view>
+    </view>
+    <view class="view-cell view-cell-line" wx:if="{{contactInfo.ChinaUnicom}}" id="{{contactInfo.ChinaUnicom}}" bindtap="call">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/china-unicom.png" />
+        <text class="view-name">联通号码</text>
+      </view>
+      <view class="view-cell-arrow">{{contactInfo.ChinaUnicom}}</view>
+    </view>
+  </view>
+</view>

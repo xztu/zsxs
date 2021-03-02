@@ -1,0 +1,6 @@
+@import "../index.wxss";
+
+.emptyData {
+  margin-top: 500rpx;
+  text-align: center;
+}

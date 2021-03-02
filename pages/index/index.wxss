@@ -1,0 +1,140 @@
+/**index.wxss**/
+.menu {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  background: #67d19d;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 10rpx 20rpx 15rpx;
+  min-height: 170rpx;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20%;
+  height: 150rpx;
+}
+
+.menu-item-icon {
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 5rpx auto;
+}
+
+.menu-item-text {
+  font-size: 34rpx;
+  display: block;
+  color: #444;
+}
+
+/**卡片列表**/
+.main-card-item {
+  display: flex;
+  flex-direction: column;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.main-card-item navigator {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-item-hd {
+  display: flex;
+  align-items: center;
+  height: 75rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-left: 30rpx;
+}
+
+.card-item-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.card-item-name {
+  font-size: 36rpx;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.card-item-bd {
+  padding: 0 25rpx 10rpx 0;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.nothing {
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  min-height: 150rpx;
+}
+
+.open {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #7f848a;
+  height: 90rpx;
+  border-top: 1rpx solid #e5e5e5;
+  margin-top: -1rpx;
+}
+
+.open .background {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  z-index: -1;
+}
+
+.item {
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+.item-left {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+
+.item-what {
+  font-size: 12pt;
+  line-height: 200%;
+  color: #777;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.item-info {
+  line-height: 125%;
+  color: #bbb;
+}
+
+.item-right {
+  flex: 0 0 auto;
+  font-size: 30rpx;
+  color: #999;
+  letter-spacing: 1px;
+}

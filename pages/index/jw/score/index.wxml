@@ -1,0 +1,63 @@
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="container">
+  <view class="cj-header">
+    <view class="cj-text">
+      <text class="cj-header-title">成绩查询</text>
+      <text class="cj-header-info">学号：{{realName}}</text>
+      <text class="cj-header-info">姓名：{{username}}</text>
+      <text class="cj-header-info">平均学分绩点：{{GPA}}</text>
+      <image class="cj-header-help-img" src="/images/icon/help.png" bindtap="showHelp"></image>
+    </view>
+    <image class="cj-bg" src="/images/icon/score.png"></image>
+  </view>
+  <view class="cj-info-ctn" wx:for="{{semesterScore}}" wx:key="index">
+    <view class="cj-grade">
+      <image class="cj-grade-logo" src="/images/icon/score.png"></image>
+      <view class="cj-grade-term">
+        <view class="cj-grade-fst">
+          <text>{{item.SemesterInfo.Year}} 学年</text>
+          <text class="grade-comment">第 {{item.SemesterInfo.Semester}} 学期 平均学分绩点：{{item.GPA}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="cj-info-box">
+      <view class="cj-info" wx:for="{{item.Scores}}" wx:key="index"
+        style="color:{{item.Score >= 60 ? (item.Score >= 80 ? 'green' : 'orange' ) : 'red'}};">
+        <text class="cj-info-name">[{{item.Type}}]\n{{item.Name}}</text>
+        <text class="cj-info-socre">成绩：{{item.Score}}\n学分：{{item.Credit}}\n绩点：{{item.GradePoint}}</text>
+      </view>
+    </view>
+    <ad unit-id="adunit-17c00e2f13b0bb7a" style="width:100% !important"></ad>
+  </view>
+
+  <view class="help" id="help" wx:if="{{help}}" bindtap="tapHelp">
+    <view class="box">
+      <view class="box-hd">
+        <text class="box-title">帮助</text>
+        <image class="box-close" src="/images/icon/close.png" bindtap="hideHelp"></image>
+      </view>
+      <view class="box-bd">
+        <view class="help-q">0、注意事项</view>
+        <view class="help-a">
+          <text>成绩、学分、绩点等仅供参考，实际情况以教务系统为准。</text>
+          <text>补考及重修考试成绩合格以60分(1绩点)计算。</text>
+          <text>学分绩点计算方法依据《忻州师范学院本科学分制教学管理办法》(http://dept.xztc.edu.cn/xsc/new/show.asp?id=165)执行。</text>
+        </view>
+        <view class="help-q">1、学分绩点是什么？</view>
+        <view class="help-a">
+          <text>学分绩点为学分数与绩点的乘积，它用以反映学生学习的质量。</text>
+        </view>
+        <view class="help-q">2、学分绩点的计算方法？</view>
+        <view class="help-a">
+          <text>课程学分绩点 = 课程学分×课程绩点</text>
+          <text>学分绩点 = ∑相应修业时段课程学分×课程绩点 = ∑课程学分绩点</text>
+          <text>平均学分绩点 = ∑相应修业时段课程学分×课程绩点/∑学分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

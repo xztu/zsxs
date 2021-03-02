@@ -1,0 +1,30 @@
+<view class="page kcb">
+  <view class="top">
+    <text class="title">{{semesterInfo.Year}} 学年 第 {{semesterInfo.Semester}} 学期</text>
+    <text class="info">{{realName}} {{username}} {{role}}</text>
+    <scroll-view scroll-x="true" class="top-nav">
+      <view bindtap="xq" id="1" class="top-btn {{xq1}}">星期一</view>
+      <view bindtap="xq" id="2" class="top-btn {{xq2}}">星期二</view>
+      <view bindtap="xq" id="3" class="top-btn {{xq3}}">星期三</view>
+      <view bindtap="xq" id="4" class="top-btn {{xq4}}">星期四</view>
+      <view bindtap="xq" id="5" class="top-btn {{xq5}}">星期五</view>
+      <view bindtap="xq" id="6" class="top-btn {{xq6}}">星期六</view>
+      <view bindtap="xq" id="7" class="top-btn {{xq7}}">星期日</view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{loading}}" class="loading">
+    <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+    加载中...
+  </view>
+  <view wx:else>
+    <view class="details" wx:if="{{timetables.length>0}}" wx:for="{{timetables}}" wx:key="id">
+      <text class="details-kc">{{item.Name}}</text>
+      <text class="details-skdd">上课地点：{{item.Location}}</text>
+      <text class="details-sksj">上课时间：第{{item.Number}}节 ( {{item.Time}} )</text>
+    </view>
+    <view class="details" wx:if="{{timetables.length===0}}">
+      <text class="details-fail">😆 没有找到今天的课表喔~</text>
+      <text class="details-fail">稍后再来试试看~</text>
+    </view>
+  </view>
+</view>

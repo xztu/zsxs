@@ -1,0 +1,54 @@
+<!--about.wxml-->
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="page SetCreditNo">
+  <view class="header">
+    <view class="black-cover"></view>
+    <image class="logo" src="/images/logo/logo-icon.png"></image>
+    <image class="title" src="/images/logo/title.png"></image>
+  </view>
+  <view class="content">
+    <view class="version">
+      <view class="version-title">
+        <text class="title-name">当前用户: {{userInfo ? userInfo.RealName + ' [ ' + userInfo.Role + ' ]': '未登陆'}}</text>
+      </view>
+    </view>
+    <view class="describe">
+      <view>
+        <view class="form-item">
+          <text class="form-item-text">账号：</text>
+          <input name="username" bindinput="usernameInput" class="form-item-input" value="{{userInfo.Username}}" disabled="{{userInfo}}"/>
+        </view>
+        <view class="form-item" wx:if="{{!userInfo}}">
+          <text class="form-item-text">密码：</text>
+          <input name="password" bindinput="passwordInput" class="form-item-input"/>
+        </view>
+      </view>
+      <view class="SetIdcard-item-button">
+        <button type="warn" size="default" bindtap="signOut" wx:if="{{userInfo}}"> 退出登陆 </button>
+        <button type="primary" size="default" bindtap="signIn" wx:else> 登 陆 </button>
+      </view>
+      <view class="warn">
+        <view class="warn-item">
+          <text class="warn-item-title">注意:</text>
+          <text class="warn-item-content">请使用 教务系统 账号与密码进行登陆。</text>
+          <text class="warn-item-content">登陆后将与您打开小程序时的微信账号绑定。更换手机后，重新使用同一微信账号打开小程序，登陆状态依旧有效。</text>
+          <text class="warn-item-content">教务系统账号与微信账号一对一绑定，使用其他微信账号登陆后当前微信的登陆状态自动失效。</text>
+          <text class="warn-item-content">24 小时内使用同一微信账号登陆失败超过 5 次后，将自动禁止使用该账号登陆，24 小时后自动解锁。</text>
+          <text class="warn-item-content">24 小时内使用同一教务系统账号登陆失败超过 5 次后，将自动禁止使用该账号登陆，24 小时后自动解锁。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footer-lanshan">
+      <image src="/images/logo/logo-icon-colourless.png"></image>
+      <text>掌上忻师</text>
+    </view>
+    <text>忻州师范学院 · 招生办公室</text>
+    <text>Copyright © 2016-{{year}} REBETA. All Rights Reserved.</text>
+  </view>
+</view>

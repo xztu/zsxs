@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="page">
+  <view class="menu">
+    <!--学生功能-->
+    <block wx:if="{{login && role==='学生'}}">
+      <navigator class="menu-item" url="jw/timetable/old/index">
+        <image class="menu-item-icon" src="/images/icon/timetable-1.png"></image>
+        <text class="menu-item-text">旧版课表</text>
+      </navigator>
+      <navigator class="menu-item" url="jw/timetable/index">
+        <image class="menu-item-icon" src="/images/icon/timetable.png"></image>
+        <text class="menu-item-text">课表查询</text>
+      </navigator>
+      <navigator class="menu-item" url="jw/score/last-semester/index">
+        <image class="menu-item-icon" src="/images/icon/score-1.png"></image>
+        <text class="menu-item-text">期末成绩</text>
+      </navigator>
+      <navigator class="menu-item" url="jw/score/index">
+        <image class="menu-item-icon" src="/images/icon/score.png"></image>
+        <text class="menu-item-text">成绩查询</text>
+      </navigator>
+    </block>
+    <!--教师功能-->
+    <block wx:elif="{{login}}">
+      <navigator class="menu-item" url="jw/timetable/old/index">
+        <image class="menu-item-icon" src="/images/icon/timetable-1.png"></image>
+        <text class="menu-item-text">旧版课表</text>
+      </navigator>
+      <navigator class="menu-item" url="jw/timetable/index">
+        <image class="menu-item-icon" src="/images/icon/timetable.png"></image>
+        <text class="menu-item-text">课表查询</text>
+      </navigator>
+      <navigator class="menu-item" url="jw/score/entry-password/index">
+        <image class="menu-item-icon" src="/images/icon/password.png"></image>
+        <text class="menu-item-text">课程密码</text>
+      </navigator>
+    </block>
+    <!--未登录功能功能-->
+    <block wx:else>
+      <navigator class="menu-item" url="../more/account/index">
+        <image class="menu-item-icon" src="/images/icon/login.png"></image>
+        <text class="menu-item-text">登陆账号</text>
+      </navigator>
+    </block>
+    <!--通用功能-->
+    <navigator class="menu-item" url="telephone-book/index">
+      <image class="menu-item-icon" src="/images/icon/telephone-book.png"></image>
+      <text class="menu-item-text">电话簿</text>
+    </navigator>
+  </view>
+  <view class="main-card">
+    <view class="main-card-item" wx:if="{{login}}">
+      <navigator url="jw/timetable/index">
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="/images/icon/timetable.png"></image>
+          <view class="card-item-name">今日课表</view>
+        </view>
+        <view wx:if="{{timetables.length>0}}" class="card-item-bd">
+          <view class="item" wx:for="{{timetables}}" wx:key="id">
+            <view class="item-left">
+              <text class="item-what">{{item.Name}}</text>
+              <text class="item-info">{{item.Location}}</text>
+            </view>
+            <view class="item-right">
+              <view class="item-info">第 {{item.Number}} 节</view>
+              <view class="item-info">{{item.Time}}</view>
+            </view>
+          </view>
+          <view style="text-align:center;margin: 15rpx auto;color: #777;font-size: 26rpx;">{{semesterInfo.Year}} 学年 第 {{semesterInfo.Semester}} 学期</view>
+        </view>
+        <view wx:else class="card-item-bd nothing">
+          <text style="color:darkgray;">😆 没有找到今天的课表喔~</text>
+          <text style="color:darkgray;">稍后再来试试看~</text>
+        </view>
+        <view class="open">
+          <text>查看本周课表</text>
+          <image class="background" mode="widthFix" src="/images/background-card-2.png"></image>
+        </view>
+      </navigator>
+    </view>
+    <view class="main-card-item">
+      <navigator url="/pages/news/index" open-type="switchTab">
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="/images/icon/fire.png"></image>
+          <view class="card-item-name">热点头条</view>
+        </view>
+        <view wx:if="{{news.length>0}}" class="card-item-bd">
+          <view class="item" wx:for="{{news}}" wx:key="id">
+            <view class="item-left">
+              <text class="item-what">{{item.Title}}</text>
+            </view>
+            <view class="item-right"><view class="item-info">{{item.Time}}</view></view>
+          </view>
+        </view>
+        <view wx:else class="card-item-bd nothing">
+          <text style="color:darkgray;">👀 没有找到热点资讯喔~</text>
+        </view>
+        <view class="open">
+          <text>查看更多资讯</text>
+          <image class="background" mode="widthFix" src="/images/background-card-1.png"></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

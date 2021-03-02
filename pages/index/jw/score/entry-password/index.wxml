@@ -1,0 +1,74 @@
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="page cj">
+  <view class="top">
+    <text class="title">成绩录入密码</text>
+    <text class="info">{{realName}} {{username}} {{role}}</text>
+    <text class="info">录入学期：{{semesterInfo.Year}} 学年 第 {{semesterInfo.Semester}} 学期</text>
+    <text class="info" style="margin-top:-15rpx;">补考学期：{{supplementSemesterInfo.Year}} 学年 第 {{supplementSemesterInfo.Semester}} 学期</text>
+  </view>
+  <view class="main-list" wx:if="{{passwords.length > 0}}" wx:for="{{passwords}}" wx:key="index">
+    <view class="list-item">
+      <view class="item" data-index="{{index}}" bindtap="bindOpenPassword" style="background:{{item.Status=='提交'?'#a8a8a8':(item.Status=='保存'?'#88cbff':(item.Status=='锁定'?'#ffbcbc':''))}}">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              {{item.Name}}<text class="state-name-active"> [{{item.ClassName}}]</text>
+            </view>
+            <view class="content-state-stuId">录入状态：{{item.Status}}</view>
+          </view>
+        </view>
+        <view class="list-sign">
+          <image class="list-sign-icon {{passwordsShowIndex === index ? 'list-sign-icon-show' : ''}}" src="/images/icon/go.png"></image>
+        </view>
+      </view>
+      <view class="item-ul" hidden="{{passwordsShowIndex !== index}}">
+        <view class="item-ul-gendor item-ul-li">
+          <text class="ul-li-label">上课时间</text>
+          <text class="ul-li-content">{{item.Time}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">上课地点</text>
+          <text class="ul-li-content">{{item.Location}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">录入密码</text>
+          <text class="ul-li-content">{{item.Password?item.Password:'未生成'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="main-list" wx:if="{{supplementPasswords != 'NULL'}}" wx:for="{{supplementPasswords}}" wx:key="index">
+    <view class="list-item">
+      <view class="item" data-index="{{index}}" bindtap="bindOpenSupplementPassword" style="background:{{item.Status=='提交'?'#a8a8a8':(item.Status=='保存'?'#88cbff':(item.Status=='锁定'?'#ffbcbc':''))}}">
+        <view class="item-content">
+          <view class="item-content-state">
+            <view class="content-state-name">
+              {{item.Name}}<text class="state-name-active"> [补考]</text>
+            </view>
+            <view class="content-state-stuId">录入状态：{{item.Status}}</view>
+          </view>
+        </view>
+        <view class="list-sign">
+          <image class="list-sign-icon {{supplementPasswordsShowIndex == index ? 'list-sign-icon-show' : ''}}" src="/images/icon/go.png"></image>
+        </view>
+      </view>
+      <view class="item-ul" hidden="{{supplementPasswordsShowIndex != index}}">
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">补考人数</text>
+          <text class="ul-li-content">{{item.NumberOfPeople}}</text>
+        </view>
+        <view class="item-ul-college item-ul-li">
+          <text class="ul-li-label">录入密码</text>
+          <text class="ul-li-content">{{item.Password?item.Password:'未生成'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="details" wx:if="{{passwords === 0 && supplementPasswords.length === 0}}">
+    <text class="details-fail">暂无课程</text>
+  </view>
+</view>

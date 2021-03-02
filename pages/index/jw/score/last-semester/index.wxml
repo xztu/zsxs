@@ -1,0 +1,19 @@
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="page cj">
+  <view class="top">
+    <text class="title">{{semesterScore.SemesterInfo.Year}} 学年</text>
+    <text class="title">第 {{semesterScore.SemesterInfo.Semester}} 学期</text>
+    <text class="info">{{realName}} {{username}}</text>
+    <text class="info">平均学分绩点：{{semesterScore.GPA}}</text>
+  </view>
+  <view class="details" wx:for="{{semesterScore.Scores}}" wx:key="index" style="color:{{item.Score > 60 ? (item.Score > 80 ? 'green' : 'orange' ) : 'red'}};">
+    <text class="details-kc">{{item.Name}}</text>
+    <text class="details-cj">成绩：{{item.Score}}</text>
+    <text class="details-cj">学分：{{item.Credit}}</text>
+    <text class="details-cj">绩点：{{item.GradePoint}}</text>
+  </view>
+</view>

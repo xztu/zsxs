@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="page me">
+  <view class="userinfo">
+    <open-data class="userinfo-avatar" background-size="cover" type="userAvatarUrl"></open-data>
+    <view class="userinfo-nickname">Hi, <open-data type="userNickName"></open-data>
+      <view class="username"> ( {{userInfo ? userInfo.RealName : '未登陆'}} ) </view> .
+    </view>
+  </view>
+  <image mode="widthFix" class="background" src="/images/background.gif"></image>
+  <view wx:if="{{loading}}" class="loading">
+    <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+    加载中...
+  </view>
+  <block wx:else>
+  <navigator url="account/index">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/login.png" />
+        <text class="view-name">{{userInfo ? '退出登陆' : '登陆账号'}}</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  <navigator url="about/index">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/about.png" />
+        <text class="view-name">关于</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator>
+  <navigator url="readme/index">
+    <view class="view-cell view-cell-line">
+      <view class="view-cell-primary">
+        <image class="view-img" mode="scaleToFill" src="/images/icon/notice.png" />
+        <text class="view-name">点我点我点我！</text>
+      </view>
+      <view class="view-cell-arrow"></view>
+    </view>
+  </navigator></block>
+</view>

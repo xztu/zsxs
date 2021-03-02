@@ -1,0 +1,110 @@
+/**index.wxss**/
+.container {
+  background-color: #fff;
+  padding-bottom: 20rpx;
+}
+
+.filter {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 150rpx;
+  white-space: nowrap;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), color-stop(0.93, rgba(255, 255, 255, .93)), to(rgba(255, 255, 255, 0)));
+}
+
+.filter-item {
+  display: inline-block;
+  margin: 10rpx;
+  opacity: .66;
+}
+
+.filter-item .filter-image {
+  display: block;
+  margin: 0 auto;
+  width: 75rpx;
+  border-radius: 5rpx;
+}
+
+.filter-item .filter-title {
+  margin-top: 5rpx;
+  text-align: center;
+}
+
+.filter-item.active {
+  opacity: 1;
+  transform: scale(1.08, 1.08);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 160rpx 20rpx 0;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px #ddd;
+  padding: 0 30rpx;
+  color: #fff;
+}
+
+.list-item.fire {
+  background-color: #d81e06;
+}
+
+.list-item.color-0 {
+  background-color: #67d19d;
+}
+
+.list-item.color-1 {
+  background-color: #9f8bea;
+}
+
+.list-item.color-2 {
+  background-color: #73b4ef;
+}
+
+.list-item.color-3 {
+  background-color: #ffcb63;
+}
+
+.list-item.color-4 {
+  background-color: #e78ab0;
+}
+
+.list-item-left {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-right: 10rpx;
+}
+
+.list-item-title {
+  font-size: 13pt;
+  line-height: 175%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+}
+
+.list-item-time {
+  font-size: 10pt;
+  line-height: 125%;
+  opacity: 0.6;
+}
+
+.list-item-icon {
+  flex: 0 0 60rpx;
+  height: 60rpx;
+  width: 60rpx;
+  border-left: 1px solid #fff;
+  padding-left: 25rpx;
+}

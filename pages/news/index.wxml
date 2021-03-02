@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view wx:if="{{loading}}" class="loading">
+  <image class="loading-image" mode="widthFix" src="/images/loading.gif"></image>
+  加载中...
+</view>
+
+<view wx:else class="container">
+  <!-- 资讯 话题 -->
+  <scroll-view class="filter" scroll-x="true">
+    <view class="filter-item {{currentTopic === 'headlines' ? 'active' : ''}}" id="headlines" bindtap="clickTopic">
+      <image class="filter-image" mode="widthFix" src="/images/icon/fire.png"></image>
+      <view class="filter-title">热点头条</view>
+    </view>
+    <view class="filter-item {{currentTopic*1 === item.ID ? 'active' : ''}}" wx:for="{{topic}}" wx:key="ID" id="{{item.ID}}" bindtap="clickTopic">
+      <image class="filter-image" mode="widthFix" src="{{item.Icon}}"></image>
+      <view class="filter-title">{{item.Name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 资讯 列表 -->
+  <view class="content">
+    <block wx:for="{{news}}" wx:key="ID">
+      <navigator url="/pages/web-view/index?src={{item.Link}}">
+        <view class="list-item {{currentTopic === 'headlines' ? 'fire' : item.Headlines ? 'fire' : 'color-'+currentTopic*1%5}}">
+          <view class="list-item-left">
+            <text class="list-item-title">{{item.Title}}</text>
+            <text class="list-item-time">{{item.Time}}</text>
+          </view>
+          <image class="list-item-icon" src="/images/icon/{{currentTopic === 'headlines' ? 'fire-ffffff' : item.Headlines ? 'fire-ffffff' : 'go'}}.png"></image>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

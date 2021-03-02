@@ -1,0 +1,57 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/jw/timetable/index",
+    "pages/index/jw/timetable/old/index",
+    "pages/index/jw/score/index",
+    "pages/index/jw/score/last-semester/index",
+    "pages/index/jw/score/entry-password/index",
+    "pages/index/telephone-book/index",
+    "pages/index/telephone-book/group/index",
+    "pages/index/telephone-book/search/index",
+    "pages/index/telephone-book/detail/index",
+
+    "pages/news/index",
+
+    "pages/more/index",
+    "pages/more/account/index",
+    "pages/more/about/index",
+    "pages/more/readme/index",
+    
+    "pages/web-view/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#67d19d",
+    "navigationBarTitleText": "掌上忻师",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#444",
+    "selectedColor": "#67d19d",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/tab-bar/index.png",
+        "selectedIconPath": "images/tab-bar/index-selected.png"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "资讯",
+        "iconPath": "images/tab-bar/news.png",
+        "selectedIconPath": "images/tab-bar/news-selected.png"
+      },
+      {
+        "pagePath": "pages/more/index",
+        "text": "更多",
+        "iconPath": "images/tab-bar/more.png",
+        "selectedIconPath": "images/tab-bar/more-selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
